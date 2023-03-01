@@ -78,6 +78,9 @@ class _BountyPageState extends State<BountyPage> {
                       _emailAddress = emailAddress;
                     });
                   },
+                ),
+                const SizedBox(
+                  height: 150,
                 )
               ],
             ),
