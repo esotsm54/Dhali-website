@@ -40,6 +40,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  flutter_web_optimizer: ^1.1.8
   flutter_test:
     sdk: flutter
 
@@ -57,7 +58,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/dhali-logo-clean.svg
-    - assets/dhali-logo.svg
+    - assets/dhali-logo.png
     - assets/example-bounty.md
 
   # The following line ensures that the Material Icons font is
