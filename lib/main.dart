@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -88,21 +89,51 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: ListView(
-          children: <Widget>[
-            SvgPicture.asset(
-                "assets/dhali-logo-clean.svg", // This was cleaner using svgcleaner
-                semanticsLabel: 'Logo'),
-            Center(
-                child: RichText(
-                    text: const TextSpan(
-                        text: 'The open marketplace for AI',
-                        style: TextStyle(color: Colors.black, fontSize: 40)))),
-            SizedBox(
-              height: 150,
-            ),
-          ],
-        ),
+        child: kIsWeb &&
+                (defaultTargetPlatform == TargetPlatform.iOS ||
+                    defaultTargetPlatform == TargetPlatform.android)
+            ? ListView(
+                itemExtent: 300,
+                shrinkWrap: true,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: SvgPicture.asset(
+                      "assets/dhali-logo-clean.svg", // This was cleaner using svgcleaner
+                      semanticsLabel: 'Logo',
+                      alignment: Alignment.topCenter,
+                    ),
+                  ),
+                  Center(
+                      child: RichText(
+                          text: const TextSpan(
+                              text: 'The open marketplace for AI',
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 40)))),
+                ],
+              )
+            : ListView(
+                shrinkWrap: true,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: SvgPicture.asset(
+                      "assets/dhali-logo-clean.svg", // This was cleaner using svgcleaner
+                      semanticsLabel: 'Logo',
+                      alignment: Alignment.topCenter,
+                    ),
+                  ),
+                  Center(
+                      child: RichText(
+                          text: const TextSpan(
+                              text: 'The open marketplace for AI',
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 40)))),
+                  const SizedBox(
+                    height: 150,
+                  ),
+                ],
+              ),
       ),
       floatingActionButton: getFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

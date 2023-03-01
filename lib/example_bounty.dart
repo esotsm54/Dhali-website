@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -32,7 +33,6 @@ class _ExampleBountyState extends State<ExampleBounty> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        drawer: getDrawer(context),
         backgroundColor: Colors.white,
         appBar: AppBar(
           foregroundColor: Colors.black,
@@ -45,7 +45,6 @@ class _ExampleBountyState extends State<ExampleBounty> {
           ),
         ),
         body: Container(
-            margin: const EdgeInsets.fromLTRB(200, 0, 200, 0),
             child: FutureBuilder<String>(
                 future:
                     getExampleBounty(), // a previously-obtained Future<String> or null
