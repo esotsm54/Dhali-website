@@ -144,8 +144,8 @@ class _BountyFormState extends State<BountyForm> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         SelectableText(
-            'Create a bounty describing an AI problem that '
-            'you need solving.\n\nOur community will do the rest!',
+            'Tell us a problem that your business faces.'
+            '\n\nOur community will do the rest!',
             style: TextStyle(color: Colors.black, fontSize: 20)),
         const SizedBox(
           height: 40,
@@ -155,7 +155,8 @@ class _BountyFormState extends State<BountyForm> {
             style: defaultStyle,
             children: <TextSpan>[
               TextSpan(
-                  text: 'See an example of bounty created for our community '),
+                  text:
+                      'See an example of a problem created for our community '),
               TextSpan(
                   text: 'here',
                   style: linkStyle,

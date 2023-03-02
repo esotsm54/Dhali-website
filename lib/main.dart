@@ -116,8 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton:
-          getPageNavigationActionButton(context, "Add bounty", "/bounty"),
+      floatingActionButton: getPageNavigationActionButton(
+          context, "Tell us your business problems", "/bounty"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
