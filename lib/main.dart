@@ -104,12 +104,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       alignment: Alignment.topCenter,
                     ),
                   ),
-                  Center(
-                      child: RichText(
-                          text: const TextSpan(
-                              text: 'The open marketplace for AI',
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 40)))),
+                  const Center(
+                      child: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: SelectableText(
+                            '  The open marketplace for AI  ',
+                            style: TextStyle(fontSize: 40),
+                          ))),
                 ],
               )
             : ListView(
@@ -123,12 +124,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       alignment: Alignment.topCenter,
                     ),
                   ),
-                  Center(
-                      child: RichText(
-                          text: const TextSpan(
-                              text: 'The open marketplace for AI',
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 40)))),
+                  const Center(
+                      child: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: SelectableText(
+                            '  The open marketplace for AI  ',
+                            style: TextStyle(fontSize: 40),
+                          ))),
                   const SizedBox(
                     height: 150,
                   ),
