@@ -96,7 +96,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SvgPicture.asset(
                 "assets/dhali-logo-clean.svg", // This was cleaner using svgcleaner
                 semanticsLabel: 'Logo', fit: BoxFit.scaleDown,
-                height: 300,
+                height: kIsWeb &&
+                        (defaultTargetPlatform == TargetPlatform.iOS ||
+                            defaultTargetPlatform == TargetPlatform.android)
+                    ? 250
+                    : 600,
                 alignment: Alignment.bottomCenter,
               ),
             ),
