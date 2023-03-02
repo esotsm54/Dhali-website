@@ -117,7 +117,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: getPageNavigationActionButton(
-          context, "Tell us your business problems", "/bounty"),
+          key: const Key("main_page_action_button"),
+          context: context,
+          label: "Tell us your business problems",
+          path: "/bounty"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }

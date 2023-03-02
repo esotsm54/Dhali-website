@@ -23,7 +23,8 @@ class BountyPage extends StatefulWidget {
 }
 
 class _BountyPageState extends State<BountyPage> {
-  final _formKey = GlobalKey<FormState>();
+  final _formKey =
+      GlobalKey<FormState>(debugLabel: "business_problem_form_key");
 
   String? _emailAddress;
   String? _description;
@@ -93,6 +94,8 @@ class _BountyPageState extends State<BountyPage> {
 
   FloatingActionButton? getFloatingActionButton() {
     FloatingActionButton actionButton = FloatingActionButton.extended(
+        key: const Key("submit_problem_action_button"),
+        backgroundColor: Color.fromARGB(255, 76, 0, 255),
         label: const Text("Submit bounty"),
         onPressed: () {
           SnackBar snackBar;
@@ -144,6 +147,7 @@ class _BountyFormState extends State<BountyForm> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         SelectableText(
+            key: const Key("tell_us_a_problem_that_your_business_faces"),
             'Tell us a problem that your business faces.'
             '\n\nOur community will do the rest!',
             style: TextStyle(color: Colors.black, fontSize: 20)),
@@ -177,7 +181,7 @@ class _BountyFormState extends State<BountyForm> {
                     widget.setEmailAddress(text);
                   },
                   validator: (value) {
-                    String errorMessage = 'Please a valid email address';
+                    String errorMessage = 'Please enter a valid email address';
                     if (value == null || value.isEmpty) {
                       return errorMessage;
                     }
