@@ -142,11 +142,10 @@ class _BountyFormState extends State<BountyForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        RichText(
-            text: const TextSpan(
-                text: 'Create a bounty describing an AI problem that '
-                    'you need solving.\n\nOur community will do the rest!',
-                style: TextStyle(color: Colors.black, fontSize: 20))),
+        SelectableText(
+            'Create a bounty describing an AI problem that '
+            'you need solving.\n\nOur community will do the rest!',
+            style: TextStyle(color: Colors.black, fontSize: 20)),
         const SizedBox(
           height: 40,
         ),

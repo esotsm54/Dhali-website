@@ -52,7 +52,10 @@ class _ExampleBountyState extends State<ExampleBounty> {
                     (BuildContext context, AsyncSnapshot<String> snapshot) {
                   Widget child;
                   if (snapshot.hasData) {
-                    child = Markdown(data: snapshot.data!);
+                    child = Markdown(
+                      data: snapshot.data!,
+                      selectable: true,
+                    );
                   } else if (snapshot.hasError) {
                     child = Padding(
                       padding: const EdgeInsets.only(top: 16),
