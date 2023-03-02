@@ -1,3 +1,4 @@
+import 'package:Dhali_website/floating_action.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -115,19 +116,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: getFloatingActionButton(),
+      floatingActionButton:
+          getPageNavigationActionButton(context, "Add bounty", "/bounty"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
-  }
-
-  FloatingActionButton? getFloatingActionButton() {
-    FloatingActionButton actionButton = FloatingActionButton.extended(
-      label: const Text("Add bounty"),
-      onPressed: () {
-        Navigator.pushNamed(context, '/bounty');
-      },
-    );
-
-    return actionButton;
   }
 }
