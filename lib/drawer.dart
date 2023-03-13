@@ -1,7 +1,10 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:Dhali_website/main.dart';
 
 Widget getDrawer(BuildContext context) {
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  analytics.logEvent(name: "drawer-opened");
   return Drawer(
     backgroundColor: Colors.white,
     child: ListView(
