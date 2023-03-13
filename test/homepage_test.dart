@@ -1,11 +1,21 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:Dhali_website/main.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'homepage_test.mocks.dart';
 
+@GenerateMocks([FirebaseAnalytics])
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
+  var analytics = MockFirebaseAnalytics();
+
   testWidgets('Test empty business problem form ', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp(analytics: analytics));
 
     expect(find.text('  The open marketplace for AI  '), findsOneWidget);
     expect(find.byKey(const Key("main_page_action_button")), findsOneWidget);

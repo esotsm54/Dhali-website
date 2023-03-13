@@ -1,11 +1,13 @@
 import 'package:Dhali_website/floating_action.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BountyPage extends StatefulWidget {
-  const BountyPage({super.key, required this.title});
+  const BountyPage({super.key, required this.title, required this.analytics});
+  final FirebaseAnalytics analytics;
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -31,6 +33,7 @@ class _BountyPageState extends State<BountyPage> {
 
   @override
   Widget build(BuildContext context) {
+    widget.analytics.logEvent(name: "bounty-page");
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 import 'bounty.dart';
 import 'drawer.dart';
@@ -14,11 +15,15 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  runApp(MyApp(
+    analytics: analytics,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.analytics});
+  final FirebaseAnalytics analytics;
 
   // This widget is the root of your application.
   @override
@@ -26,9 +31,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => MyHomePage(title: 'Dhali'),
-        '/bounty': (context) => BountyPage(title: 'Bounty'),
-        '/bounty/example': (context) => ExampleBounty(title: 'Example bounty'),
+        '/': (context) => MyHomePage(
+              title: 'Dhali',
+              analytics: analytics,
+            ),
+        '/bounty': (context) => BountyPage(
+              title: 'Bounty',
+              analytics: analytics,
+            ),
+        '/bounty/example': (context) => ExampleBounty(
+              title: 'Example bounty',
+              analytics: analytics,
+            ),
       },
       title: 'Dhali',
       theme: ThemeData(
@@ -48,7 +62,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.analytics});
+  final FirebaseAnalytics analytics;
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -68,6 +83,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    widget.analytics.logAppOpen();
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
