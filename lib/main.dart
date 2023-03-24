@@ -1,8 +1,11 @@
-import 'package:Dhali_website/floating_action.dart';
+import 'package:Dhali_website/buttons.dart';
+import 'package:Dhali_website/footer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:footer/footer.dart';
+import 'package:footer/footer_view.dart';
 import 'firebase_options.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 
@@ -91,53 +94,55 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      // drawer: getDrawer(context),
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        foregroundColor: Colors.black,
+        // drawer: getDrawer(context),
         backgroundColor: Colors.white,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(
-          widget.title,
-          style: const TextStyle(color: Colors.black),
+        appBar: AppBar(
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.white,
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(
+            widget.title,
+            style: const TextStyle(color: Colors.black),
+          ),
         ),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: ListView(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: SvgPicture.asset(
-                "assets/dhali-logo-clean.svg", // This was cleaner using svgcleaner
-                semanticsLabel: 'Logo', fit: BoxFit.scaleDown,
-                height: kIsWeb &&
-                        (defaultTargetPlatform == TargetPlatform.iOS ||
-                            defaultTargetPlatform == TargetPlatform.android)
-                    ? 250
-                    : 600,
+        body: Center(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child: FooterView(
+            footer: getFooter(),
+            children: <Widget>[
+              Align(
                 alignment: Alignment.bottomCenter,
+                child: SvgPicture.asset(
+                  "assets/dhali-logo-clean.svg", // This was cleaner using svgcleaner
+                  semanticsLabel: 'Logo', fit: BoxFit.scaleDown,
+                  height: kIsWeb &&
+                          (defaultTargetPlatform == TargetPlatform.iOS ||
+                              defaultTargetPlatform == TargetPlatform.android)
+                      ? 250
+                      : 600,
+                  alignment: Alignment.bottomCenter,
+                ),
               ),
-            ),
-            const Align(
-                alignment: Alignment.topCenter,
-                child: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: SelectableText(
-                      '  The open marketplace for AI  ',
-                      style: TextStyle(fontSize: 40),
-                    ))),
-          ],
-        ),
-      ),
-      floatingActionButton: getPageNavigationActionButton(
-          key: const Key("main_page_action_button"),
-          context: context,
-          label: "Tell us your business problems",
-          path: "/bounty"),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    );
+              const Align(
+                  alignment: Alignment.topCenter,
+                  child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: SelectableText(
+                        '  The open marketplace for AI  ',
+                        style: TextStyle(fontSize: 40),
+                      ))),
+              const SizedBox(
+                height: 50,
+              ),
+              getPageNavigationElevatedButton(
+                  key: const Key("main_page_action_button"),
+                  context: context,
+                  label: "Tell us your business problems",
+                  path: "/bounty")
+            ],
+          ),
+        ));
   }
 }
