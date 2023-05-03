@@ -38,3 +38,23 @@ Widget getPageNavigationElevatedButton({
             child: Text(label),
           )));
 }
+
+Widget getElevatedButton(
+    {Key? key,
+    required BuildContext context,
+    required String label,
+    required Function() onPressed}) {
+  return Center(
+      key: key,
+      child: ElevatedButton(
+          onPressed: () {
+            onPressed();
+          },
+          style: ElevatedButton.styleFrom(
+              shape: const StadiumBorder(),
+              backgroundColor: const Color.fromARGB(255, 76, 0, 255)),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(label),
+          )));
+}
