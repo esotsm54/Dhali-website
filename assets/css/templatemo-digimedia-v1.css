@@ -2308,3 +2308,56 @@ responsive
 .fa-twitter {
   color: white;
 }
+
+#cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  z-index: 9999;
+}
+
+#cookie-notice p {
+  margin: 0;
+  padding-right: 15px;
+}
+
+#cookie-notice a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+#accept-cookies {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#reject-cookies {
+  background-color: #ff5d5d;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}

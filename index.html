@@ -169,6 +169,15 @@
         </div>
       </div>
     </div>
+    <div id="cookie-notice">
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <p style="color:rgb(255, 255, 255); margin: 0;">We use cookies to improve your browsing experience and to analyze website traffic. By continuing to use this website, you consent to our use of cookies. <a href="cookie-policy.htm" target="_blank" rel="noopener noreferrer" style="color:rgb(159, 159, 252);">Learn more</a></p>
+        <div>
+          <button id="reject-cookies" style="margin-right: 5px;">Reject</button>
+          <button id="accept-cookies">Accept</button>
+        </div>
+      </div>
+    </div>
   </footer>
 
 
@@ -204,10 +213,13 @@
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (email.match(mailformat))
       {
-        gtag('event', 'button_click', {
-          'event_category': 'Button',
-          'event_label': 'Email submission success'
-        });
+        if (getCookie("cookieAccepted") != "")
+        {  
+          gtag('event', 'button_click', {
+            'event_category': 'Button',
+            'event_label': 'Email submission success'
+          });
+        }
 
         collection.doc().set(
           {
@@ -224,11 +236,14 @@
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
       }
       else
-      {
-        gtag('event', 'button_click', {
-          'event_category': 'Button',
-          'event_label': 'Email submission failed'
-        });
+      {        
+        if (getCookie("cookieAccepted") != "")
+        {  
+          gtag('event', 'button_click', {
+            'event_category': 'Button',
+            'event_label': 'Email submission failed'
+          });
+        }
 
         var x = document.getElementById("snackbar-fail");
   
@@ -240,31 +255,80 @@
       }
       
     })
-  </script>
-
-  <script>
-    window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function() {
       clearTimeout(window.scrollTimer);
       window.scrollTimer = setTimeout(function() {
-        gtag('event', 'scroll', {
-          'event_category': 'Page Interaction',
-          'event_label': 'Page Scrolled'
-        });
-      }, 100);
+        if (getCookie("cookieAccepted") != "")
+        {  
+          gtag('event', 'scroll', {
+            'event_category': 'Page Interaction',
+            'event_label': 'Page Scrolled'
+          });
+        }
+        }, 100);
+    });
+
+    window.addEventListener('beforeunload', function() {
+      if (getCookie("cookieAccepted") != "")
+      {  
+        const timeSpent = Math.round((new Date().getTime() - window.performance.timing.navigationStart) / 1000);
+        navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-6TPZFK7NQ6&api_secret=VJXWFQksSXWNKtPPyy31xw', JSON.stringify({
+          'event_name': 'page_time_spent',
+          'user_properties': {
+            'time_spent': timeSpent
+          }    
+        }));
+      }
     });
   </script>
 
   <script>
-    window.addEventListener('beforeunload', function() {
-      const timeSpent = Math.round((new Date().getTime() - window.performance.timing.navigationStart) / 1000);
-      navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-6TPZFK7NQ6&api_secret=VJXWFQksSXWNKtPPyy31xw', JSON.stringify({
-        'event_name': 'page_time_spent',
-        'user_properties': {
-          'time_spent': timeSpent
+    function hideCookieNotice() {
+      document.getElementById('cookie-notice').style.display = 'none';
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
         }
-      }));
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function checkCookie() {
+      var cookieAccepted = getCookie("cookieAccepted");
+      if (cookieAccepted != "") {
+        hideCookieNotice();
+      }
+    }
+
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+      setCookie("cookieAccepted", "true", 365);
+      hideCookieNotice();
     });
+
+    document.getElementById('reject-cookies').addEventListener('click', function() {
+      setCookie("cookieAccepted", "", 365);
+      hideCookieNotice();
+    });
+
+    checkCookie();
   </script>
+
 
 </body>
 </html>
