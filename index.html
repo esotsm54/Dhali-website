@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TPZFK7NQ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6TPZFK7NQ6');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Dhali</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/blue-company-logo-clean.svg">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-digimedia-v1.css">
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="assets/images/blue-company-logo-clean.svg" alt=""  width="50" height="60">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#contact">Contact</a></li>
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h6>Dhali</h6>
+                    <h2>The open marketplace for on-demand AI</h2>
+                    <p>Dhali levels the playing field by providing an open marketplace that offers cutting-edge AI solutions</p>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="border-first-button scroll-to-section">
+                      <a href="#contact">Get started</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="assets/images/blue-company-logo-clean.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- 
+  <div id="about" class="about section">
+    <div class="container">
+      <div class="row">
+        <p align="center">
+          <iframe width="540" height="305" src="https://www.youtube.com/embed/b2C6gdzcuDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </p>
+      </div>
+    </div>
+  </div> -->
+  <style>
+    @media print
+    {
+    h1 {page-break-before:always}
+    }
+    </style>
+
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div id="snackbar-success">Thank you!</div>
+        <div id="snackbar-fail">Invalid email address</div>
+        <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="fill-form">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="main-button ">Register interest now</button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2022 Dhali Holdings Ltd. All Rights Reserved.
+            <a href="https://www.youtube.com/channel/UC8Mx_KbOQ4E7y50mSmlTx4w" class="fa fa-youtube" target="_blank"></a>
+            <a href="https://github.com/Dhali-org" class="fa fa-github" target="_blank"></a>
+            <a href="https://twitter.com/dhali_io" class="fa fa-twitter" target="_blank"></a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="cookie-notice">
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <p style="color:rgb(255, 255, 255); margin: 0;">We use cookies to improve your browsing experience and to analyze website traffic. By continuing to use this website, you consent to our use of cookies. <a href="cookie-policy.htm" target="_blank" rel="noopener noreferrer" style="color:rgb(159, 159, 252);">Learn more</a></p>
+        <div>
+          <button id="reject-cookies" style="margin-right: 5px;">Reject</button>
+          <button id="accept-cookies">Accept</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBro8QN3zyJwyo92lYUMPwsyRVPLLGOTcs",
+      authDomain: "dhali-prod.firebaseapp.com",
+      projectId: "dhali-prod",
+      storageBucket: "dhali-prod.appspot.com",
+      messagingSenderId: "1042340549063",
+      appId: "1:1042340549063:web:3dc69cffe6d3c0746189e2",
+      measurementId: "G-6TPZFK7NQ6"
+    };
+    var app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore(app)
+    const collection = db.collection("emails-from-ads")
+    let submitButton = document.getElementById("form-submit")
+    submitButton.addEventListener("click", (e) => {
+      e.preventDefault()
+      let email = document.getElementById("email").value
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (email.match(mailformat))
+      {
+        if (getCookie("cookieAccepted") != "")
+        {  
+          gtag('event', 'button_click', {
+            'event_category': 'Button',
+            'event_label': 'Email submission success'
+          });
+        }
+
+        collection.doc().set(
+          {
+            email: email
+          }
+        )
+        document.getElementById("email").value = ""
+        var x = document.getElementById("snackbar-success");
+  
+        // Add the "show" class to DIV
+        x.className = "show";
+  
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      }
+      else
+      {        
+        if (getCookie("cookieAccepted") != "")
+        {  
+          gtag('event', 'button_click', {
+            'event_category': 'Button',
+            'event_label': 'Email submission failed'
+          });
+        }
+
+        var x = document.getElementById("snackbar-fail");
+  
+        // Add the "show" class to DIV
+        x.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      }
+      
+    })
+  window.addEventListener('scroll', function() {
+      clearTimeout(window.scrollTimer);
+      window.scrollTimer = setTimeout(function() {
+        if (getCookie("cookieAccepted") != "")
+        {  
+          gtag('event', 'scroll', {
+            'event_category': 'Page Interaction',
+            'event_label': 'Page Scrolled'
+          });
+        }
+        }, 100);
+    });
+
+    window.addEventListener('beforeunload', function() {
+      if (getCookie("cookieAccepted") != "")
+      {  
+        const timeSpent = Math.round((new Date().getTime() - window.performance.timing.navigationStart) / 1000);
+        navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-6TPZFK7NQ6&api_secret=VJXWFQksSXWNKtPPyy31xw', JSON.stringify({
+          'event_name': 'page_time_spent',
+          'user_properties': {
+            'time_spent': timeSpent
+          }    
+        }));
+      }
+    });
+  </script>
+
+  <script>
+    function hideCookieNotice() {
+      document.getElementById('cookie-notice').style.display = 'none';
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function checkCookie() {
+      var cookieAccepted = getCookie("cookieAccepted");
+      if (cookieAccepted != "") {
+        hideCookieNotice();
+      }
+    }
+
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+      setCookie("cookieAccepted", "true", 365);
+      hideCookieNotice();
+    });
+
+    document.getElementById('reject-cookies').addEventListener('click', function() {
+      setCookie("cookieAccepted", "", 365);
+      hideCookieNotice();
+    });
+
+    checkCookie();
+  </script>
+
+
+</body>
+</html>
