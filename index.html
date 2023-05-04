@@ -2,7 +2,16 @@
 <html lang="en">
 
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TPZFK7NQ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'G-6TPZFK7NQ6');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -195,6 +204,11 @@
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (email.match(mailformat))
       {
+        gtag('event', 'button_click', {
+          'event_category': 'Button',
+          'event_label': 'Email submission success'
+        });
+
         collection.doc().set(
           {
             email: email
@@ -211,6 +225,11 @@
       }
       else
       {
+        gtag('event', 'button_click', {
+          'event_category': 'Button',
+          'event_label': 'Email submission failed'
+        });
+
         var x = document.getElementById("snackbar-fail");
   
         // Add the "show" class to DIV
@@ -221,6 +240,30 @@
       }
       
     })
+  </script>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      clearTimeout(window.scrollTimer);
+      window.scrollTimer = setTimeout(function() {
+        gtag('event', 'scroll', {
+          'event_category': 'Page Interaction',
+          'event_label': 'Page Scrolled'
+        });
+      }, 100);
+    });
+  </script>
+
+  <script>
+    window.addEventListener('beforeunload', function() {
+      const timeSpent = Math.round((new Date().getTime() - window.performance.timing.navigationStart) / 1000);
+      navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-6TPZFK7NQ6&api_secret=VJXWFQksSXWNKtPPyy31xw', JSON.stringify({
+        'event_name': 'page_time_spent',
+        'user_properties': {
+          'time_spent': timeSpent
+        }
+      }));
+    });
   </script>
 
 </body>
