@@ -11,7 +11,7 @@
 
       gtag('config', 'G-6TPZFK7NQ6');
     </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -66,7 +66,7 @@
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#contact">Contact</a></li>
-            </ul>        
+            </ul>
             <a class='menu-trigger'>
                 <span>Menu</span>
             </a>
@@ -109,7 +109,7 @@
       </div>
     </div>
   </div>
-<!-- 
+<!--
   <div id="about" class="about section">
     <div class="container">
       <div class="row">
@@ -144,7 +144,7 @@
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <button type="submit" id="form-submit" class="main-button ">Register interest now</button>
+                        <button type="submit" id="form-submit" class="main-button ">Join our public beta waitlist!</button>
                       </fieldset>
                     </div>
                   </div>
@@ -214,7 +214,7 @@
       if (email.match(mailformat))
       {
         if (getCookie("cookieAccepted") != "")
-        {  
+        {
           gtag('event', 'button_click', {
             'event_category': 'Button',
             'event_label': 'Email submission success'
@@ -228,17 +228,17 @@
         )
         document.getElementById("email").value = ""
         var x = document.getElementById("snackbar-success");
-  
+
         // Add the "show" class to DIV
         x.className = "show";
-  
+
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
       }
       else
-      {        
+      {
         if (getCookie("cookieAccepted") != "")
-        {  
+        {
           gtag('event', 'button_click', {
             'event_category': 'Button',
             'event_label': 'Email submission failed'
@@ -246,20 +246,20 @@
         }
 
         var x = document.getElementById("snackbar-fail");
-  
+
         // Add the "show" class to DIV
         x.className = "show";
 
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
       }
-      
+
     })
   window.addEventListener('scroll', function() {
       clearTimeout(window.scrollTimer);
       window.scrollTimer = setTimeout(function() {
         if (getCookie("cookieAccepted") != "")
-        {  
+        {
           gtag('event', 'scroll', {
             'event_category': 'Page Interaction',
             'event_label': 'Page Scrolled'
@@ -270,13 +270,13 @@
 
     window.addEventListener('beforeunload', function() {
       if (getCookie("cookieAccepted") != "")
-      {  
+      {
         const timeSpent = Math.round((new Date().getTime() - window.performance.timing.navigationStart) / 1000);
         navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-6TPZFK7NQ6&api_secret=VJXWFQksSXWNKtPPyy31xw', JSON.stringify({
           'event_name': 'page_time_spent',
           'user_properties': {
             'time_spent': timeSpent
-          }    
+          }
         }));
       }
     });
