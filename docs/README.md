@@ -32,7 +32,7 @@ If you are using Dhali programmatically, you will need to manually generate paym
 
 ## AI users
 
-After selecting an AI tool (aka, AI asset) from the Dhali marketplace, users will see an available endpoint and a description of how to structure the asset's input. Requests to Dhali assets always take a form similar to this:
+After selecting an AI tool (aka, AI asset) from the [Dhali marketplace](https://dhali-app.web.app/#/), users will see an available endpoint and a description of how to structure the asset's input. Requests to Dhali assets always take a form similar to this:
 ```
 curl -v -X PUT -H 'Payment-Claim: <insert_prepared_payment_claim>' -F 'input=@<path_to_input_file>' https://<URL>/<ASSET_ID>/run
 ```
