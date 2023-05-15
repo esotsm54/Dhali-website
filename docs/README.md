@@ -3,7 +3,8 @@
 * [Dhali](https://dhali.io) is a Web 3.0 open marketplace for creators and users of AI. 
 * To use Dhali, stream blockchain enabled micropayments for what you need, when you need it. 
 No subscriptions are required.
-* Dhali currently uses the [XRP Ledger](https://xrpl.org/) to receive payments.
+* Creators receive an NFT representing their AI. When their AI is used, Dhali streams micropayments to the NFT holder.
+* Dhali currently uses the [XRP Ledger](https://xrpl.org/) testnet to manage payments.
 
 INSERT VIDEO
 
@@ -59,3 +60,5 @@ docker save --output /tmp/my_asset.tar my_asset
     * Select "Add new asset" from the "My assets" page.
     * Follow the dialog to upload `/tmp/my_asset.tar` from 5. and your `README.md`.
     * Your asset should now be visible in the marketplace.
+
+7. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
