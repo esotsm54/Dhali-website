@@ -16,6 +16,17 @@
       name: '',
       repo: '',
       themeColor: '#4B00FF',
+      plugins: [
+        function (hook, vm) {
+          hook.doneEach(function() {
+            var sidebar = document.querySelector('.sidebar');
+            var logo = document.createElement('img');
+            logo.src = '../assets/images/blue-company-logo-clean.svg';
+            logo.style.width = '30%';
+            sidebar.insertBefore(logo, sidebar.firstChild);
+          });
+        }
+      ]
     }
   </script>
   <!-- Docsify v4 -->
