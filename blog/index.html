@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script
+    type="text/javascript"
+    src="https://app.termly.io/embed.min.js"
+    data-auto-block="on"
+    data-website-uuid="1b1475d2-3c77-4545-b5fc-785d862fd817"
+  ></script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMZJNJH');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <title>Dhali Blog</title>
   <link rel="icon" type="image/x-icon" href="../assets/images/blue-company-logo-clean.svg">
@@ -10,6 +24,11 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMZJNJH"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div id="app"></div>
   <script>
     window.$docsify = {
@@ -17,9 +36,35 @@
       repo: '',
       loadSidebar: true,
       themeColor: '#4B00FF',
+      plugins: [
+        function (hook, vm) {
+          hook.doneEach(function() {
+            var sidebar = document.querySelector('.sidebar');
+            // Check if the notice already exists to avoid duplicate
+            if (!document.getElementById('cookie-consent-notice')) {
+              var notice = document.createElement('div');
+              notice.id = 'cookie-consent-notice';  // add an id to the div
+              notice.innerHTML = `
+                <p>We use cookies to improve your experience. By using this site, you agree to our use of cookies.
+                 <a href="#" onclick="window.displayPreferenceModal();return false;" id="termly-consent-preferences">Consent Preferences</a>
+                </p>`;
+              
+              // You can add custom styles
+              notice.style.marginTop = '1em';
+              notice.style.padding = '1em';
+              notice.style.backgroundColor = '#f8f9fa';
+              notice.style.color = '#6c757d';
+              notice.style.borderRadius = '5px';
+              
+              sidebar.appendChild(notice);
+            }
+          });
+        }
+      ]
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
 </body>
 </html>
