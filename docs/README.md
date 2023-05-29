@@ -6,7 +6,9 @@ No subscriptions are required.
 * Creators receive an NFT representing their AI. When their AI is used, Dhali streams micropayments to the NFT holder.
 * Dhali currently uses the [XRP Ledger](https://xrpl.org/) testnet to manage payments.
 
-INSERT VIDEO
+ <p align="center">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QaC_-lBG9hc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
 
 ## Prepare micropayments
 

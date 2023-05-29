@@ -1064,6 +1064,11 @@ About Style
 --------------------------------------------- 
 */
 
+.about-us .section-heading {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
 #about {
   padding-top: 130px;
 }
