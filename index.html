@@ -15,6 +15,14 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KMZJNJH');</script>
     <!-- End Google Tag Manager -->    
+      <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TPZFK7NQ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6TPZFK7NQ6');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -308,13 +316,10 @@
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (email.match(mailformat))
       {
-        if (getCookie("cookieAccepted") != "")
-        {
-          gtag('event', 'button_click', {
-            'event_category': 'Button',
-            'event_label': 'Email submission success'
-          });
-        }
+        gtag('event', 'button_click', {
+          'event_category': 'Button',
+          'event_label': 'Email submission success'
+        });
 
         collection.doc().set(
           {
@@ -332,13 +337,10 @@
       }
       else
       {
-        if (getCookie("cookieAccepted") != "")
-        {
-          gtag('event', 'button_click', {
-            'event_category': 'Button',
-            'event_label': 'Email submission failed'
-          });
-        }
+        gtag('event', 'button_click', {
+          'event_category': 'Button',
+          'event_label': 'Email submission failed'
+        });
 
         var x = document.getElementById("snackbar-fail");
 
@@ -353,77 +355,23 @@
   window.addEventListener('scroll', function() {
       clearTimeout(window.scrollTimer);
       window.scrollTimer = setTimeout(function() {
-        if (getCookie("cookieAccepted") != "")
-        {
-          gtag('event', 'scroll', {
-            'event_category': 'Page Interaction',
-            'event_label': 'Page Scrolled'
-          });
-        }
-        }, 100);
+        gtag('event', 'scroll', {
+          'event_category': 'Page Interaction',
+          'event_label': 'Page Scrolled'
+        });
+      }, 100);
     });
 
     window.addEventListener('beforeunload', function() {
-      if (getCookie("cookieAccepted") != "")
-      {
-        const timeSpent = Math.round((new Date().getTime() - window.performance.timing.navigationStart) / 1000);
-        navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-6TPZFK7NQ6&api_secret=VJXWFQksSXWNKtPPyy31xw', JSON.stringify({
-          'event_name': 'page_time_spent',
-          'user_properties': {
-            'time_spent': timeSpent
-          }
-        }));
-      }
+      const timeSpent = Math.round((new Date().getTime() - window.performance.timing.navigationStart) / 1000);
+      navigator.sendBeacon('https://www.google-analytics.com/mp/collect?measurement_id=G-6TPZFK7NQ6&api_secret=VJXWFQksSXWNKtPPyy31xw', JSON.stringify({
+        'event_name': 'page_time_spent',
+        'user_properties': {
+          'time_spent': timeSpent
+        }
+      }));
     });
   </script>
-
-  <script>
-    function hideCookieNotice() {
-      document.getElementById('cookie-notice').style.display = 'none';
-    }
-
-    function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-      var expires = "expires="+d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
-    function getCookie(cname) {
-      var name = cname + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    }
-
-    function checkCookie() {
-      var cookieAccepted = getCookie("cookieAccepted");
-      if (cookieAccepted != "") {
-        hideCookieNotice();
-      }
-    }
-
-    document.getElementById('accept-cookies').addEventListener('click', function() {
-      setCookie("cookieAccepted", "true", 365);
-      hideCookieNotice();
-    });
-
-    document.getElementById('reject-cookies').addEventListener('click', function() {
-      setCookie("cookieAccepted", "", 365);
-      hideCookieNotice();
-    });
-
-    checkCookie();
-  </script>
-
 
 </body>
 </html>
