@@ -52,7 +52,7 @@ To create an asset:
 ```
 docker build -t my_asset .
 docker run  -p 8080:8080 my_asset
-curl -X PUT -F "input=@<path_to_input>" http://127.0.0.1:8080/run/
+curl -X PUT -F 'input=@<path_to_input>' http://127.0.0.1:8080/run/
 ```
 5. Build your asset:
 ```
