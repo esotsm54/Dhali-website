@@ -3,7 +3,7 @@
 * [Dhali](https://dhali.io) is a Web 3.0 open marketplace for creators and users of AI. 
 * To use Dhali, stream blockchain enabled micropayments for what you need, when you need it. 
 No subscriptions are required.
-* Creators receive an NFT representing their AI. When their AI is used, Dhali streams micropayments to the NFT holder.
+* Without worrying about security, scaling, or monetisation, creators can upload their AI to Dhali, receiving an NFT represention in return. When their AI is used, Dhali streams micropayments to the NFT holder.
 * Dhali currently uses the [XRP Ledger](https://xrpl.org/) testnet to manage payments.
 
 
@@ -46,22 +46,25 @@ curl -v -X PUT -H 'Payment-Claim: <insert_prepared_payment_claim>' -F 'input=@<p
 To create an asset:
 1. Clone the dhali asset template:\
 `git clone git@github.com:Dhali-org/Dhali-asset-template.git`
-2. Add your AI to the `run` entrypoint in `main.py`.
-3. Update the `README.md`.
-4. Test your asset locally
+2. Perform the necessary changes to the template:
+    - Add your AI to the `run` entrypoint in `main.py`.
+    - Update the `README.md`.
+    - Ensure all Python dependencies are in your `requirements.txt`.
+    - Ensure all files needed in the container (e.g., models) are copied using `Dockerfile`.
+3. Test your asset locally
 ```
 docker build -t my_asset .
 docker run  -p 8080:8080 my_asset
 curl -X PUT -F 'input=@<path_to_input>' http://127.0.0.1:8080/run/
 ```
-5. Build your asset:
+4. Build your asset:
 ```
 docker save --output /tmp/my_asset.tar my_asset
 ```
-6. To deploy your asset:
+5. To deploy your asset:
     * Enter the Dhali marketplace.
     * Select "Add new asset" from the "My assets" page.
     * Follow the dialog to upload `/tmp/my_asset.tar` from 5. and your `README.md`.
     * Your asset should now be visible in the marketplace.
 
-7. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
+6. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
