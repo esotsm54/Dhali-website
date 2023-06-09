@@ -1,10 +1,7 @@
 # Introduction
 
-* [Dhali](https://dhali.io) is a Web 3.0 open marketplace for creators and users of AI. 
-* To use Dhali, stream blockchain enabled micropayments for what you need, when you need it. 
-No subscriptions are required.
-* Without worrying about security, scaling, or monetisation, creators can upload their AI to Dhali, receiving an NFT represention in return. When their AI is used, Dhali streams micropayments to the NFT holder.
-* Dhali currently uses the [XRP Ledger](https://xrpl.org/) testnet to manage payments.
+[Dhali](https://dhali.io) is a Web 3.0 marketplace that revolutionises the way APIs are accessed, deployed, and monetised. Dhali offers a seamless platform for developers to deploy their APIs, without developers having to worry about security, scaling, or monetisation. Meanwhile, users can connect their wallets to access these APIs. One of the key advantages of Dhali is its utilisation of efficient XRPL [payment channels](https://xrpl.org/use-payment-channels.html). These payment channels enable cost-effective off-ledger transactions, dramatically enhancing the overall efficiency of the Dhali platform to the benefit of all Dhali users. In addition, APIs on Dhali are tokenised using non-fungible tokens (NFTs). When an API is accessed and utilised, the owner of the corresponding NFT receives the earnings generated from its usage. By combining efficient off-ledger payment channels and NFT-based tokenisation, Dhali offers a secure, efficient, and transparent ecosystem for API deployment and monetisation.
+
 
 
  <p align="center" style="width:560px;">
@@ -26,10 +23,14 @@ If using or deploying assets through the marketplace, payment claims will be aut
 ### Manual
 
 If you are using Dhali programmatically, you will need to manually generate payment claims. To create a new payment claim:
-1. Install dhali-py:\
-`pip install dhali-py`
-2. Generate a test wallet:\
-`dhali create-xrpl-wallet`
+1. Install dhali-py:
+```bash
+pip install dhali-py
+```
+2. Generate a test wallet:
+```bash
+dhali create-xrpl-wallet
+```
 3. Generate a payment claim to Dhali's public wallet (run `dhali create-xrpl-payment-claim --help` for information on the flags):\
 `dhali create-xrpl-payment-claim -s <secret from 2.> -d rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk -a 10000000 -i <sequence number from 2.> -t 100000000`
 
