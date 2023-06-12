@@ -41,6 +41,39 @@ After selecting an AI tool (aka, AI asset) from the [Dhali marketplace](https://
 curl -v -X PUT -H 'Payment-Claim: <insert_prepared_payment_claim>' -F 'input=@<path_to_input_file>' https://<URL>/<ASSET_ID>/run
 ```
 
+Alternatively, you can do this through our Python library `dhali-py`.  For example:
+
+```python
+from io import BytesIO                                                             
+from xrpl import wallet                                                            
+from dhali.module import Module                                                    
+from dhali.payment_claim_generator import (                                        
+    get_xrpl_wallet,                                                               
+    get_xrpl_payment_claim,                                                        
+)                                                                                  
+                                                                                   
+if __name__ == "__main__":                                                         
+                                                                                   
+    asset_uuid = "<insert asset uuid here>"                                        
+    some_wallet = get_xrpl_wallet()                                                
+                                                                                   
+                                                                                   
+    DHALI_PUBLIC_ADDRESS="rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk"                      
+    some_payment_claim = get_xrpl_payment_claim(some_wallet.seed, DHALI_PUBLIC_ADDRESS, "10000", some_wallet.sequence, "100000")
+                                                                                   
+    test_module = Module(asset_uuid, some_wallet)                                  
+    # Note: we assume here that the asset takes a text file as input:
+    response = test_module.run(                                                    
+        BytesIO("<insert some valid input text>".encode("utf-8")), some_payment_claim
+    
+    # ..
+
+    # We could also do this if there is a file instead:
+    with open("<insert input file path here>", "rb") as f:
+        response = test_module.run(f, some_payment_claim)
+    )  
+```
+
 ## AI creators
 
 To create an asset:
