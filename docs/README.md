@@ -6,38 +6,47 @@ Dhali is a Web 3.0 open marketplace for API creators and users. With Dhali, you 
           <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QaC_-lBG9hc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </p>
 
-## Preparing micropayments
+## Getting started
 
-In Dhali, all API requests are accompanied by an XRPL-based payment claim. This claim is a JSON object embedded in the request header to fund the service and acts as a means to stream micropayments.
+### Creating Dhali assets
 
-* If you use or deploy assets through the marketplace, payment claims are auto-generated and submitted with the requests.
-* However, if you are interacting with Dhali programmatically, you need to generate these payment claims manually. Here's how:
+To deploy an API onto Dhali:
+1. Clone the dhali asset template:
+`git clone git@github.com:Dhali-org/Dhali-asset-template.git`
+2. Modify the template as needed:
+* Implement your AI in the `run` function within `main.py`.
+* Update the `README.md` to provide information about your API.
+* Include all Python dependencies in your `requirements.txt`.
+* Make sure all necessary files (e.g., models) are copied in the `Dockerfile`.
 
-### Manual payment claim generation
-
-If you are using Dhali programmatically, you will need to manually generate payment claims. To create a new payment claim:
-1. Install dhali-py:
+3. Test your API locally:
 ```bash
-pip install dhali-py`
+docker build -t my_api .
+docker run  -p 8080:8080 my_api
+curl -X PUT -F 'input=@<path_to_input>' http://127.0.0.1:8080/run/
 ```
-
-2. Generate a test wallet:
-```bash
-dhali create-xrpl-wallet
+4. Build your API:
 ```
-
-3. Generate a payment claim. Replace the <secret from step 2> with your wallet's secret and <sequence number from step 2> with your wallet's sequence number:
-```bash
-dhali create-xrpl-payment-claim -s <secret from 2.> -d rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk -a 10000000 -i <sequence number from 2.> -t 100000000
+docker save --output ./my_asset.tar my_asset
 ```
+5. To deploy your asset:
+    * Enter the Dhali marketplace.
+    * Select "Add new asset" from the "My assets" page.
+    * Follow the dialog to upload `./my_asset.tar` from 5. and your `README.md`.
+    * Your api should now be visible in the marketplace.
 
-## Using Dhali APIs
+6. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
+
+
+## Using Dhali assets
 
 Once you've selected an AI asset from the Dhali marketplace, you'll find an available endpoint and a description of the input structure required by the asset. To request the asset, use a command similar to the following:
 
 ```bash
 curl -v -X PUT -H 'Payment-Claim: <insert_prepared_payment_claim>' -F 'input=@<path_to_input_file>' https://<URL>/<ASSET_ID>/run
 ```
+
+Please see [the section on preparing micropayments](#preparing-micropayments) for instructions on how to create a payment claim.
 
 Or use our Python library `dhali-py` as shown:
 
@@ -72,31 +81,27 @@ if __name__ == "__main__":
     )  
 ```
 
-## AI creators
+## Preparing micropayments
 
-To deploy an API onto Dhali:
-1. Clone the dhali asset template:
-`git clone git@github.com:Dhali-org/Dhali-asset-template.git`
-2. Modify the template as needed:
-* Implement your AI in the `run` function within `main.py`.
-* Update the `README.md` to provide information about your API.
-* Include all Python dependencies in your `requirements.txt`.
-* Make sure all necessary files (e.g., models) are copied in the `Dockerfile`.
+In Dhali, all API requests are accompanied by an XRPL-based payment claim. This claim is a JSON object embedded in the request header to fund the service and acts as a means to stream micropayments.
 
-3. Test your API locally:
+* If you use or deploy assets through the marketplace, payment claims are auto-generated and submitted with the requests.
+* However, if you are interacting with Dhali programmatically, you need to generate these payment claims manually. Here's how:
+
+### Manual payment claim generation
+
+If you are using Dhali programmatically, you will need to manually generate payment claims. To create a new payment claim:
+1. Install dhali-py:
 ```bash
-docker build -t my_api .
-docker run  -p 8080:8080 my_api
-curl -X PUT -F 'input=@<path_to_input>' http://127.0.0.1:8080/run/
+pip install dhali-py`
 ```
-4. Build your API:
-```
-docker save --output /tmp/my_api.tar my_api
-```
-5. To deploy your asset:
-    * Enter the Dhali marketplace.
-    * Select "Add new asset" from the "My assets" page.
-    * Follow the dialog to upload `/tmp/my_api.tar` from 5. and your `README.md`.
-    * Your api should now be visible in the marketplace.
 
-6. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
+2. Generate a test wallet:
+```bash
+dhali create-xrpl-wallet
+```
+
+3. Generate a payment claim. Replace the <secret from step 2> with your wallet's secret and <sequence number from step 2> with your wallet's sequence number:
+```bash
+dhali create-xrpl-payment-claim -s <secret from 2.> -d rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk -a 10000000 -i <sequence number from 2.> -t 100000000
+```
