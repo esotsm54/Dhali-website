@@ -27,12 +27,12 @@ curl -X PUT -F 'input=@<path_to_input>' http://127.0.0.1:8080/run/
 ```
 4. Build your API:
 ```
-docker save --output /tmp/my_api.tar my_api
+docker save --output ./my_asset.tar my_asset
 ```
 5. To deploy your asset:
     * Enter the Dhali marketplace.
     * Select "Add new asset" from the "My assets" page.
-    * Follow the dialog to upload `/tmp/my_api.tar` from 5. and your `README.md`.
+    * Follow the dialog to upload `./my_asset.tar` from 5. and your `README.md`.
     * Your api should now be visible in the marketplace.
 
 6. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
