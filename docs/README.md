@@ -38,62 +38,80 @@ docker save --output ./my_asset.tar my_asset
 6. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
 
 
-## Using Dhali assets
+### Using Dhali assets
 
-Once you've selected an AI asset from the Dhali marketplace, you'll find an available endpoint and a description of the input structure required by the asset. To request the asset, use a command similar to the following:
+Once you've selected an AI asset from the Dhali marketplace, you'll find an available endpoint and a description of the input structure required by the asset. To request the asset:
 
+<!-- tabs:start -->
+
+<!-- tab:Marketplace -->
+
+* Visit [Dhali Marketplace](https://dhali-app.web.app/).
+* Click "Wallet" in the pop-out menu to activate your wallet.
+* Select "Marketplace" in the pop-out menu and choose an asset.
+* Prepare an input file using the asset's README description.
+* On the asset page, click "Run" and upload your input file.
+
+<!-- tab:Bash -->
+
+* Create a payment claim using [the instructions on preparing micropayments](#preparing-micropayments).
+* Visit [Dhali Marketplace](https://dhali-app.web.app/).
+* Select "Marketplace" in the pop-out menu, choose an asset and copy its endpoint url: 
 ```bash
-curl -v -X PUT -H 'Payment-Claim: <insert_prepared_payment_claim>' -F 'input=@<path_to_input_file>' https://<URL>/<ASSET_ID>/run
+ENDPOINT=https://<URL>/<ASSET_ID>/run
+```
+* Prepare an input file using the asset's README description.
+* Then:
+```bash
+curl -v -X PUT -H 'Payment-Claim: <insert_prepared_payment_claim>' -F 'input=@<path_to_input_file>' $ENDPOINT
 ```
 
-Please see [the section on preparing micropayments](#preparing-micropayments) for instructions on how to create a payment claim.
-
-Or use our Python library `dhali-py` as shown:
-
+<!-- tab:Python -->
+First:
+```bash
+pip install dhali-py
+```
+Then:
 ```python
-from io import BytesIO                                                             
-from xrpl import wallet                                                            
+from io import BytesIO                                                 
 from dhali.module import Module                                                    
 from dhali.payment_claim_generator import (                                        
     get_xrpl_wallet,                                                               
     get_xrpl_payment_claim,                                                        
 )                                                                                  
-                                                                                   
-if __name__ == "__main__":                                                         
-                                                                                   
-    asset_uuid = "<insert asset uuid here>"                                        
-    some_wallet = get_xrpl_wallet()                                                
-                                                                                   
-                                                                                   
-    DHALI_PUBLIC_ADDRESS="rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk"                      
-    some_payment_claim = get_xrpl_payment_claim(some_wallet.seed, DHALI_PUBLIC_ADDRESS, "10000", some_wallet.sequence, "100000")
-                                                                                   
-    test_module = Module(asset_uuid, some_wallet)                                  
-    # Note: we assume here that the asset takes a text file as input:
-    response = test_module.run(                                                    
-        BytesIO("<insert some valid input text>".encode("utf-8")), some_payment_claim
-    
-    # ..
+                                                                              
+asset_uuid = "<insert asset uuid here>"                                        
+some_wallet = get_xrpl_wallet()                                                
+                                                                               
+DHALI_PUBLIC_ADDRESS="rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk"                      
+some_payment_claim = get_xrpl_payment_claim(some_wallet.seed, DHALI_PUBLIC_ADDRESS, "10000", some_wallet.sequence, "100000")
+                                                                                
+test_module = Module(asset_uuid) 
 
-    # We could also do this if there is a file instead:
-    with open("<insert input file path here>", "rb") as f:
-        response = test_module.run(f, some_payment_claim)
-    )  
+# Note: we assume here that the asset takes a text file as input:
+response = test_module.run(                                                    
+    BytesIO("<insert some valid input text>".encode("utf-8")), some_payment_claim)
+
+# We could also do this if there is a file instead:
+with open("<insert input file path here>", "rb") as f:
+    response = test_module.run(f, some_payment_claim)
 ```
 
-## Preparing micropayments
+<!-- tabs:end -->
+
+### Preparing micropayments
 
 In Dhali, all API requests are accompanied by an XRPL-based payment claim. This claim is a JSON object embedded in the request header to fund the service and acts as a means to stream micropayments.
 
 * If you use or deploy assets through the marketplace, payment claims are auto-generated and submitted with the requests.
 * However, if you are interacting with Dhali programmatically, you need to generate these payment claims manually. Here's how:
 
-### Manual payment claim generation
+#### Manual payment claim generation
 
 If you are using Dhali programmatically, you will need to manually generate payment claims. To create a new payment claim:
 1. Install dhali-py:
 ```bash
-pip install dhali-py`
+pip install dhali-py
 ```
 
 2. Generate a test wallet:

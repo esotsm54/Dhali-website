@@ -25,6 +25,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="code.css">
+  <style>
+    .docsify-tabs__tab {
+        cursor: pointer;
+    }
+  </style>    
 </head>
 <body>
   <div id="app"></div>
@@ -33,6 +38,13 @@
       name: '',
       repo: '',
       themeColor: '#4B00FF',
+      tabs: {
+        persist    : true,      // default
+        sync       : true,      // default
+        theme      : 'material',
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      },
       plugins: [
         function (hook, vm) {
           hook.doneEach(function() {
@@ -67,6 +79,7 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-
+  <!-- docsify-tabs (latest v1.x.x) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 </body>
 </html>
