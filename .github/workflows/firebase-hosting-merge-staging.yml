@@ -1,12 +1,14 @@
-name: Deploy to Firebase Hosting on PR
-'on': pull_request
+name: Deploy to Firebase Hosting on merge
+'on':
+  push:
+    branches:
+      - main
 jobs:
-  build_and_preview:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Inject GTM snippets
+      k name: Inject GTM snippets
         run: |
           GTM_STAGING_HEAD_SNIPPET=$(cat gtm/gtm_head_staging.html)
           GTM_STAGING_BODY_SNIPPET=$(cat gtm/gtm_body_staging.html)
@@ -16,4 +18,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KERNML }}'
+          channelId: live
           projectId: kernml
