@@ -68,7 +68,7 @@ if __name__ == "__main__":
     DHALI_PUBLIC_ADDRESS="rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk"                      
     some_payment_claim = get_xrpl_payment_claim(some_wallet.seed, DHALI_PUBLIC_ADDRESS, "10000", some_wallet.sequence, "100000")
                                                                                    
-    test_module = Module(asset_uuid, some_wallet)                                  
+    test_module = Module(asset_uuid)                                  
     # Note: we assume here that the asset takes a text file as input:
     response = test_module.run(                                                    
         BytesIO("<insert some valid input text>".encode("utf-8")), some_payment_claim
