@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      k name: Inject GTM snippets
+      - name: Inject GTM snippets
         run: |
           GTM_PROD_HEAD_SNIPPET=$(cat gtm/gtm_head_prod.html)
           GTM_PROD_BODY_SNIPPET=$(cat gtm/gtm_body_prod.html)
