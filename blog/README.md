@@ -2,4 +2,4 @@
 
 Read the latest blogs from Dhali
 
-[14/05/23: The Power of Streaming Micropayments: Unleashing AI Access and Advantages](subscription_free_ai.md)
+[07/07/23: The Evolution of SaaS: Cap-ex, Op-ex, and "Mon-ex"](saas_history.md)
