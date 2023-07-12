@@ -12,12 +12,12 @@ The 1990s marked the birth of SaaS. Since then, the SaaS market size has grown t
 5. Ariba (now SAP Ariba), founded in 1996 and currently valued at $155.2 billion, developed tooling to facilitate and improve the procurement process for large corporations.
 
 <p align="center">
-    <img src="images/number_of_saas_companies_founded_by_year.png" alt="Fast"/>
+    <img src="assets/images/number_of_saas_companies_founded_by_year.png" alt="Fast"/>
 </p>
 
 [Image source](https://cardconnect.com/launchpointe/tech-trends/rise-of-saas)
 
-But with its inception, these early pioneers of the SaaS model were hit by simultaneous challenges of Cap-ex, Op-ex, and Mon-ex. 
+But with its inception, these early pioneers of the SaaS model were hit by simultaneous challenges of Cap-ex, Op-ex, and Mon-ex.
 
 Cap-ex represents the initial investments required to set up the infrastructure for a business. For a SaaS company in the 1990s, this meant significant spending on servers, data centers, and networking hardware. Think of a fledgling SaaS company having to purchase an entire server farm to host their application.
 
@@ -31,12 +31,12 @@ Mon-ex represents the challenges and costs associated with implementing and mana
 The advent of cloud computing in the 2000s marked a seismic shift in the SaaS landscape. Companies such as Amazon, Google, and Microsoft began offering cloud-based services, which allowed SaaS companies to lease server space rather than buying and maintaining their own, significantly reducing Cap-ex.
 
 <p align="center">
-    <img src="images/Ent-Spending-2020.webp" alt="Fast"/>
+    <img src="assets/images/Ent-Spending-2020.webp" alt="Fast"/>
 </p>
 
 [Image source](https://techcrunch.com/2021/03/19/cloud-infrastructure-spending-passed-on-prem-data-centers-in-2020/)
 
-Now, instead of purchasing and maintaining server farms, SaaS companies could pay for exactly what they used. This shift to a scalable, pay-as-you-go model transformed the industry by lowering the financial barrier to entry for new SaaS companies. An [article from Forbes](https://www.forbes.com/sites/quora/2019/12/20/how-much-money-can-businesses-save-by-moving-to-the-cloud/) indicated that firms could save between 30 and 50% by moving their on-prem systems into the cloud. Critically, the emergence of cloud has allowed the "little guys" to effectively compete on the world stage. And as a result, we all benefitted. 
+Now, instead of purchasing and maintaining server farms, SaaS companies could pay for exactly what they used. This shift to a scalable, pay-as-you-go model transformed the industry by lowering the financial barrier to entry for new SaaS companies. An [article from Forbes](https://www.forbes.com/sites/quora/2019/12/20/how-much-money-can-businesses-save-by-moving-to-the-cloud/) indicated that firms could save between 30 and 50% by moving their on-prem systems into the cloud. Critically, the emergence of cloud has allowed the "little guys" to effectively compete on the world stage. And as a result, we all benefitted.
 
 But the problems that SaaS companies faced were not over. All those rented servers that sat in the cloud still needed managing. And this management still came at great expense;  it required considerable Op-ex.
 
@@ -52,12 +52,12 @@ Serverless architecture didn't just lower costs; it allowed SaaS companies to fo
 
 But still, the problems of SaaS companies are not over. With the advent of payment service providers (PSPs) like Stripe, Square, or PayPal, some of the challenges of accepting payments from customers have been reduced. For example, businesses now no longer needed to set up their own individual merchant account because their transactions could be processed through the provider's merchant account.
 
-While using PSPs has advantages in terms of ease of setup and simplicity, there can also be drawbacks. These can include higher transaction fees (typically between 1.5 and 3.5%), less control over the payment process, and a potentially higher risk of having the account frozen or terminated because the payment provider is managing risk on a portfolio basis. Moreover, because of these issues, certain monetization routes become completely infeasible. Imagine trying to operate a company that generates revenue through large volumes of small individual sales. If each transaction comes with a flat fee, as often the case for modern PSPs, the costs to the company can quickly become exorbitant. 
+While using PSPs has advantages in terms of ease of setup and simplicity, there can also be drawbacks. These can include higher transaction fees (typically between 1.5 and 3.5%), less control over the payment process, and a potentially higher risk of having the account frozen or terminated because the payment provider is managing risk on a portfolio basis. Moreover, because of these issues, certain monetization routes become completely infeasible. Imagine trying to operate a company that generates revenue through large volumes of small individual sales. If each transaction comes with a flat fee, as often the case for modern PSPs, the costs to the company can quickly become exorbitant.
 
 The global PSP market size is [expected to reach](https://www.globenewswire.com/news-release/2023/04/10/2643500/0/en/Payment-Processing-Solutions-Market-Projected-to-Reach-Valuation-of-US-198-0-Bn-at-12-CAGR-from-2023-2032.html) $155.7 billion by 2030. That's $155.7 billion dollars of financial friction, which we could use to estimate where global Mon-ex is heading.
 
 <p align="center">
-    <img src="images/Payment-Processing-Solutions-Market-Size.png" alt="Fast"/>
+    <img src="assets/images/Payment-Processing-Solutions-Market-Size.png" alt="Fast"/>
 </p>
 
 As we look towards the future, emerging Web3 and blockchain technologies are poised to disrupt this landscape and alleviate some of the burdens associated with Mon-ex. The inherent features of these technologies – decentralization, transparency, and automation – pave the way for more efficient and cost-effective monetization mechanisms. As we saw with reduction of Cap-ex and Op-ex, the competitive landscape will be further flattened, enabling the "little guys" to compete more effectively, and focus on the interesting problems.
