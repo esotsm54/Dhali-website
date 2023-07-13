@@ -10,6 +10,11 @@ Dhali is a Web 3.0 open marketplace for API creators and users. With Dhali, you 
 
 ### Creating Dhali assets
 
+The [Dhali-examples](https://github.com/Dhali-org/Dhali-examples) repository provides a collection of functioning asset examples that can be used as a guide for asset creation.
+In what follows, we provide a step by step guide for how these were created.
+
+#### Step by step guide
+
 To deploy an API onto Dhali:
 1. Clone the dhali asset template:
 `git clone git@github.com:Dhali-org/Dhali-asset-template.git`
