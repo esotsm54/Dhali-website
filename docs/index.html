@@ -52,6 +52,8 @@
             var logo = document.createElement('img');
             logo.src = '../assets/images/blue-company-logo-clean.svg';
             logo.style.width = '30%';
+            logo.setAttribute('onclick', "window.open('https://dhali.io')");
+
             sidebar.insertBefore(logo, sidebar.firstChild);
 
             // Check if the notice already exists to avoid duplicate
