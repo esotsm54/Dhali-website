@@ -12,6 +12,10 @@ jobs:
           GTM_STAGING_BODY_SNIPPET=$(cat gtm/gtm_body_staging.html)
           perl -i -pe "s#<!-- GTM_HEAD -->#${GTM_STAGING_HEAD_SNIPPET}#gs" index.html
           perl -i -pe "s#<!-- GTM_BODY -->#${GTM_STAGING_BODY_SNIPPET}#gs" index.html
+          perl -i -pe "s#<!-- GTM_HEAD -->#${GTM_STAGING_HEAD_SNIPPET}#gs" blog/index.html
+          perl -i -pe "s#<!-- GTM_BODY -->#${GTM_STAGING_BODY_SNIPPET}#gs" blog/index.html
+          perl -i -pe "s#<!-- GTM_HEAD -->#${GTM_STAGING_HEAD_SNIPPET}#gs" docs/index.html
+          perl -i -pe "s#<!-- GTM_BODY -->#${GTM_STAGING_BODY_SNIPPET}#gs" docs/index.html
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
