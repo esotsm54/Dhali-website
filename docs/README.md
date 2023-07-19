@@ -32,7 +32,7 @@ curl -X PUT -F 'input=@<path_to_input>' http://127.0.0.1:8080/run/
 ```
 4. Build your API:
 ```
-docker save --output ./my_asset.tar my_asset
+docker save --output ./my_asset.tar my_api
 ```
 5. To deploy your asset:
     * Enter the Dhali marketplace.
