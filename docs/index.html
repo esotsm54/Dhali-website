@@ -7,15 +7,7 @@
     data-auto-block="on"
     data-website-uuid="1b1475d2-3c77-4545-b5fc-785d862fd817"
   ></script>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TPZFK7NQ6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6TPZFK7NQ6');
-    </script>
-    <!-- End Google Tag Manager -->
+  <!-- GTM_HEAD -->
 
   <meta charset="UTF-8">
   <title>Dhali Documentation</title>
@@ -29,14 +21,41 @@
     .docsify-tabs__tab {
         cursor: pointer;
     }
-  </style>    
+    .material-button {
+        background-color: #0000ff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    
+    .material-button:hover {
+        background-color: #6f6ffd;
+        color: rgb(255, 255, 255);
+    }
+    .button-container {
+      text-align: left;
+    }
+  </style> 
 </head>
 <body>
+  <!-- GTM_BODY -->
   <div id="app"></div>
   <script>
-    window.$docsify = {
+    window.$docsify = {  
       name: '',
       repo: '',
+      loadSidebar: true,    
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
       themeColor: '#4B00FF',
       tabs: {
         persist    : true,      // default
@@ -50,9 +69,8 @@
           hook.doneEach(function() {
             var sidebar = document.querySelector('.sidebar');
             var logo = document.createElement('img');
-            logo.src = '../assets/images/blue-company-logo-clean.svg';
-            logo.style.width = '30%';
-            sidebar.insertBefore(logo, sidebar.firstChild);
+
+            
 
             // Check if the notice already exists to avoid duplicate
             if (!document.getElementById('cookie-consent-notice')) {

@@ -4,18 +4,10 @@
   <script
     type="text/javascript"
     src="https://app.termly.io/embed.min.js"
-    data-auto-block="on"
+    data-auto-block="off"
     data-website-uuid="1b1475d2-3c77-4545-b5fc-785d862fd817"
   ></script>
-  <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TPZFK7NQ6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-6TPZFK7NQ6');
-  </script>
-  <!-- End Google Tag Manager -->
+  <!-- GTM_HEAD -->
 
   <meta charset="UTF-8">
   <title>Dhali Blog</title>
@@ -24,15 +16,32 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
 </head>
 <body>
+  <!-- GTM_BODY -->
   <div id="app"></div>
   <script>
     window.$docsify = {
       name: '',
       repo: '',
+      count:{
+        countable: true,
+        position: 'top',
+        margin: '10px',
+        float: 'right',
+        fontsize:'0.9em',
+        color:'rgb(90,90,90)',
+        language:'english',
+        localization: {
+          words: "",
+          minute: ""
+        },
+        isExpected: true
+      },
       loadSidebar: true,
       themeColor: '#4B00FF',
+      auto2top: true,
       plugins: [
         function (hook, vm) {
           hook.doneEach(function() {
@@ -57,11 +66,31 @@
             }
           });
         }
-      ]
+      ],
+      progress: {
+        position: "bottom",
+        color: "var(--theme-color,#0000FF)",
+        height: "10px",
+      },
+      share: {
+        reddit: true,
+        linkedin: true,
+        facebook: true,
+        twitter: true,
+        whatsapp: true,
+        telegram: true,
+        options: {
+          color: '#0000FF',
+          theme: 'slide-bar',
+        },
+      },
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
 
+  <script src="//unpkg.com/docsify-count/dist/countable.min.js"></script>
 </body>
 </html>

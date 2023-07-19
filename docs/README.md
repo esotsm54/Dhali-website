@@ -1,6 +1,8 @@
-# Introduction
+# Dhali documentation
 
-Dhali is a Web 3.0 open marketplace for API creators and users. With Dhali, you can stream blockchain-enabled micropayments for API services without needing any subscription. Dhali allows creators to upload their API, which then gets represented as an NFT. Whenever their API is used, micropayments are streamed to the NFT holder. The platform currently utilizes the XRP Ledger testnet for handling payments.
+## Introduction
+
+Dhali is a Web 3.0 open marketplace for API creators and users. With Dhali, you can stream blockchain-enabled micropayments for API services without needing any subscription. Dhali allows creators to upload their API, which then gets represented as an [NFT](https://xrpl.org/non-fungible-tokens.html) on the [XRPL](https://xrpl.org/). Whenever their API is used, micropayments are streamed to the NFT holder. The platform currently utilizes the XRP Ledger testnet for handling payments.
 
  <p align="center" style="width:560px;">
           <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QaC_-lBG9hc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -8,7 +10,53 @@ Dhali is a Web 3.0 open marketplace for API creators and users. With Dhali, you 
 
 ## Getting started
 
-### Creating Dhali assets
+* To explore currently available assets, check out the marketplace:
+<div class="button-container">
+    <a href="https://dhali-app.web.app/#/" target="_blank" rel="noopener noreferrer">
+        <button class="material-button" type="button">Marketplace</button>
+    </a>
+</div>
+
+* To turn your software project into a revenue generating asset, check out the tutorial:
+<div class="button-container">
+    <a href="#/?id=step-by-step-guide">
+        <button class="material-button" type="button">Creating Dhali Assets</button>
+    </a>
+</div>
+
+* To access on-demand assets, check out the tutorial:
+<div class="button-container">
+    <a href="#/?id=using-dhali-assets">
+        <button class="material-button" type="button">Using Dhali Assets</button>
+    </a>
+</div>
+
+## How Dhali works
+
+Whether you want to create Dhali assets or use Dhali assets, you must:
+1. **Have a digital wallet**: \
+Currently, we support XRPL wallets. Wallets can be created through our marketplace.
+2. **Open a payment channel to Dhali**: \
+A [payment channel](https://xrpl.org/payment-channels.html) is a type of blockchain technology that allows for secure, fast, and low-cost transactions without needing to commit all those transactions individually to the blockchain.
+3. **Create payment claims against the channel and send them to Dhali's API**: \
+Payment claims are cryptographic json receipts that are sent to Dhali. Dhali checks their validaity in real-time and uses them at a later date to extract money from the payment channel. The amout of money that can be extracted is determined by the receipt creator.\
+\
+Dhali exposes an API for using and producing Dhali assets.
+All API requests should include the payment-claim header:
+```bash
+Payment-Claim: $PAYMENT_CLAIM_JSON
+```
+
+## Creating Dhali assets
+
+Creating a Dhali asset is simple. The [Dhali-examples](https://github.com/Dhali-org/Dhali-examples) repository provides a collection of functioning asset examples that can be used as a guide for asset creation.
+In what follows, we provide a step by step guide for how these were created.
+
+ <p align="center" style="width:560px;">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Kckl5z14pm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+
+#### Step by step guide
 
 To deploy an API onto Dhali:
 1. Clone the dhali asset template:
@@ -27,7 +75,7 @@ curl -X PUT -F 'input=@<path_to_input>' http://127.0.0.1:8080/run/
 ```
 4. Build your API:
 ```
-docker save --output ./my_asset.tar my_asset
+docker save --output ./my_asset.tar my_api
 ```
 5. To deploy your asset:
     * Enter the Dhali marketplace.
@@ -38,11 +86,66 @@ docker save --output ./my_asset.tar my_asset
 6. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
 
 
-### Using Dhali assets
+## Using Dhali assets
 
-Once you've selected an AI asset from the Dhali marketplace, you'll find an available endpoint and a description of the input structure required by the asset. To request the asset:
+Once you've selected an AI asset from the Dhali marketplace, you'll find an available endpoint and a description of the input structure required by the asset. Below, we show different ways to use the asset: 
+
 
 <!-- tabs:start -->
+
+<!-- tab:REST -->
+#### PUT /{uuid}/run - **Run an asset**
+
+<!-- tabs:start -->
+
+<!-- tab:Request -->
+
+
+
+```bash
+https://dhali-prod-run-dauenf0n.uc.gateway.dev/{uuid}/run
+```
+
+**Path parameters**
+
+| Name      | Type      | Description           |
+|-----------|-----------|-----------------------|
+| uuid      | String    | The UUID of the asset |
+
+**Headers**
+
+| Name          | Type      | Description           |
+|---------------|-----------|-----------------------|
+| Payment-Claim | String    | A receipt against your payment channel |
+
+**Request body**
+
+| Name      | Type            | Content type | Description                         |
+|-----------|-----------------|---------------|----------------------|
+| input     | string($binary) | multipart/form-data | Provide an input to the Dhali asset |
+
+
+
+<!-- tab:Response -->
+
+**200**: OK
+
+Execution successful.
+```
+{
+    <A json object, structured according to the asset creator>
+}
+```
+
+**402**: Bad payment claim.
+```
+{
+    detail: "<An explanation of why your payment claim was not valid>"
+}
+```
+
+<!-- tabs:end -->
+
 
 <!-- tab:Marketplace -->
 
@@ -54,7 +157,7 @@ Once you've selected an AI asset from the Dhali marketplace, you'll find an avai
 
 <!-- tab:Bash -->
 
-* Create a payment claim using [the instructions on preparing micropayments](#preparing-micropayments).
+* Create a payment claim using [the instructions on preparing micropayments](prepare_payments/README.md).
 * Visit [Dhali Marketplace](https://dhali-app.web.app/).
 * Select "Marketplace" in the pop-out menu, choose an asset and copy its endpoint url: 
 ```bash
@@ -99,27 +202,24 @@ with open("<insert input file path here>", "rb") as f:
 
 <!-- tabs:end -->
 
-### Preparing micropayments
+
+## Preparing payments
 
 In Dhali, all API requests are accompanied by an XRPL-based payment claim. This claim is a JSON object embedded in the request header to fund the service and acts as a means to stream micropayments.
 
 * If you use or deploy assets through the marketplace, payment claims are auto-generated and submitted with the requests.
-* However, if you are interacting with Dhali programmatically, you need to generate these payment claims manually. Here's how:
+* However, if you are interacting with Dhali programmatically, you need to generate these payment claims manually:
+    1. Install dhali-py:
+    ```bash
+    pip install dhali-py
+    ```
 
-#### Manual payment claim generation
+    2. Generate a test wallet:
+    ```bash
+    dhali create-xrpl-wallet
+    ```
 
-If you are using Dhali programmatically, you will need to manually generate payment claims. To create a new payment claim:
-1. Install dhali-py:
-```bash
-pip install dhali-py
-```
-
-2. Generate a test wallet:
-```bash
-dhali create-xrpl-wallet
-```
-
-3. Generate a payment claim. Replace the <secret from step 2> with your wallet's secret and <sequence number from step 2> with your wallet's sequence number:
-```bash
-dhali create-xrpl-payment-claim -s <secret from 2.> -d rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk -a 10000000 -i <sequence number from 2.> -t 100000000
-```
+    3. Generate a payment claim. Replace the <secret from step 2> with your wallet's secret and <sequence number from step 2> with your wallet's sequence number:
+    ```bash
+    dhali create-xrpl-payment-claim -s <secret from 2.> -d rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk -a 10000000 -i <sequence number from 2.> -t 100000000
+    ```
