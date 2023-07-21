@@ -1,0 +1,128 @@
+body {
+    background-color: #F3F8F2;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+#landing-page-title {
+    width: 80%; 
+    left: 0; 
+    top: 45vh; 
+    position: absolute; 
+    color: black; 
+    font-size: 60pt; 
+    font-family: Outfit; 
+    font-weight: 700; 
+    line-height: 4.5vw; 
+    word-wrap: break-word
+}
+
+#dhali-text {
+    width: 10%;
+    left: 0;
+    top: 40vh;
+    position: absolute;
+    color: #0000FF;
+    font-size: 25pt;
+    font-family: Outfit;
+    font-weight: 700;
+    line-height: 4.0vw;
+    word-wrap: normal
+}
+
+#landing-page-text-group {
+    width: 100%;
+}
+
+#landing-page-text {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 75vh;
+}
+
+.landing-page-sub-title {
+  text-align: center;
+  color: #8E8EF6;
+  font-size: 18px;
+  font-family: Outfit;
+  font-weight: 400;
+  word-wrap: normal
+}
+
+.landing-page-text {
+  width: 350px;
+  height: 93px;
+  text-align: center;
+  color: #1E1E1E;
+  font-size: 16px;
+  font-family: Outfit;
+  font-weight: 400;
+  word-wrap: normal
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: #333;
+}
+
+.navbar-text {
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    font-family: Outfit;
+    font-weight: 400;
+    line-height: 27.50px;
+    word-wrap: normal
+}
+
+#navbar {
+    display: flex;
+    top: 0;
+    right: 0;
+}
+
+.preview-text {
+  position: absolute;
+  top: -5px;
+  right: -33px;
+  color: #8E8EF6;
+  font-family: Outfit;
+  font-weight: 400;
+  word-wrap: normal;
+  font-size: 0.7em;
+}
+
+.sun {
+    left: 75vw; 
+    top: 25vh; 
+    position: relative;
+    width: 55vh;
+    height: 55vh;
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar-text, .preview-text {
+        font-size: 16px;
+    }
+
+    #navbar {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Adjust for larger screens */
+@media screen and (min-width: 769px) {
+}
