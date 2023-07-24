@@ -41,7 +41,7 @@ A [payment channel](https://xrpl.org/payment-channels.html) is a type of blockch
 \
 A payment channel is like a locked box of money shared between two friends. Each time one friend wants to pay the other, instead of handing money directly, they exchange a key that permits a certain amount of money to be taken from the box in the future. The locked box only needs to be opened at the end when they're done transacting.
 3. **Create payment claims against the channel and send them to Dhali's API to fund your requests**: \
-A payment claim is a cryptographic key that is sent to Dhali's API. In the analogy above, it is a key to the box. It may represent fractions of a cent in value. Dhali checks the keys validity in real-time to ensure it can fund the latest request. Dhali uses the claim at a later date to take money from the payment channel. The amout of money that can be taken is determined by the payment claim creator. \
+A payment claim is a cryptographic key that is sent to Dhali's API. In the analogy above, it is a key to the box. It may represent fractions of a cent in value. Dhali checks the key's validity in real-time to ensure it can fund the latest request. Dhali uses the claim at a later date to take money from the payment channel. The amout of money that can be taken is determined by the payment claim creator.
 \
 Payment claims are cummulative, meaning that if a user makes an API call costing X, followed by another API call costing Y, the first payment claim must have a value of at least X while the second payment claim must have a value of at least X+Y. Also, the second payment makes the first payment claim obsolete. \
 \
