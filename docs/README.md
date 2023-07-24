@@ -35,7 +35,7 @@ Dhali is a Web 3.0 open marketplace for API creators and users. With Dhali, you 
 
 Whether you want to create Dhali assets or use Dhali assets, you must:
 1. **Have a digital wallet**: \
-Currently, we support XRPL wallets. Wallets can be created through our marketplace.
+Currently, we support [XRPL](https://xrpl.org/) wallets. Wallets can be created through our marketplace.
 2. **Open a payment channel to Dhali**: \
 A [payment channel](https://xrpl.org/payment-channels.html) is a type of blockchain technology that allows for secure, fast, and low-cost transactions without needing to commit all those transactions individually to the blockchain. \
 \
@@ -43,13 +43,22 @@ A payment channel is like a locked box of money shared between two friends. Each
 3. **Create payment claims against the channel and send them to Dhali's API to fund your requests**: \
 A payment claim is a cryptographic key that is sent to Dhali's API. In the analogy above, it is a key to the box. It may represent fractions of a cent in value. Dhali checks the key's validity in real-time to ensure it can fund the latest request. Dhali uses the claim at a later date to take money from the payment channel. The amout of money that can be taken is determined by the payment claim creator.
 \
-Payment claims are cummulative, meaning that if a user makes an API call costing X, followed by another API call costing Y, the first payment claim must have a value of at least X while the second payment claim must have a value of at least X+Y. Also, the second payment makes the first payment claim obsolete. \
 \
+Payment claims are cummulative, meaning that if a user makes an API call costing X, followed by another API call costing Y, the first payment claim must have a value of at least X while the second payment claim must have a value of at least X+Y. Also, the second payment makes the first payment claim obsolete.
 Dhali exposes an API for using and producing Dhali assets.
 All API requests should include the payment-claim header:
 ```bash
 Payment-Claim: $PAYMENT_CLAIM_JSON
 ```
+To understand more about payment claims, see our section on creating them:
+<div class="button-container">
+<br>
+    <a href="#/?id=preparing-payments">
+        <button class="material-button" type="button">Create a payment claim</button>
+    </a>
+<br>
+<br>
+</div>
 4. **Manage your Dhali balance**: \
 As you use Dhali's API, your usage costs are incremented. Your Dhali balance is the amount of money in the payment channel minus your current usage costs. If your Dhali balance reaches zero, you will need to add more money to your payment channel.
 
@@ -211,21 +220,38 @@ with open("<insert input file path here>", "rb") as f:
 
 ## Preparing payments
 
-In Dhali, all API requests are accompanied by an XRPL-based payment claim. This claim is a JSON object embedded in the request header to fund the service and acts as a means to stream micropayments.
+In Dhali, all API requests are accompanied by an XRPL-based payment claim. This claim is a JSON object embedded in the request header to fund the service, acts as a means to stream micropayments, and takes the following form:
+```bash
+{
+    "account": "<Your account classic address>", 
+    "destination_account": "<Dhali's classic address>", 
+    "authorized_to_claim": "<The max drops (millionths of an XRP) that this payment claim allows to be extracted from the channel>", 
+    "signature": "<A cryptographic signature that only 'account' can create>", 
+    "channel_id": "<The ID of the channel>"
+}
+```
+To create valid payment claims:
+<!-- tabs:start -->
 
-* If you use or deploy assets through the marketplace, payment claims are auto-generated and submitted with the requests.
-* However, if you are interacting with Dhali programmatically, you need to generate these payment claims manually:
-    1. Install dhali-py:
-    ```bash
-    pip install dhali-py
-    ```
+<!-- tab:Marketplace -->
 
-    2. Generate a test wallet:
-    ```bash
-    dhali create-xrpl-wallet
-    ```
+Payment claims are auto-generated and submitted with requests.
 
-    3. Generate a payment claim. Replace the <secret from step 2> with your wallet's secret and <sequence number from step 2> with your wallet's sequence number:
-    ```bash
-    dhali create-xrpl-payment-claim -s <secret from 2.> -d rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk -a 10000000 -i <sequence number from 2.> -t 100000000
-    ```
+<!-- tab:Python -->
+1. Install dhali-py:
+```bash
+pip install dhali-py
+```
+
+2. Generate a test wallet:
+```bash
+dhali create-xrpl-wallet
+```
+
+3. Generate a payment claim. Replace the <secret from step 2> with your wallet's secret and <sequence number from step 2> with your wallet's sequence number:
+```bash
+dhali create-xrpl-payment-claim -s <secret from 2.> -d rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk -a 10000000 -i <sequence number from 2.> -t 100000000
+```
+
+
+<!-- tabs:end -->
