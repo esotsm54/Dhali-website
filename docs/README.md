@@ -37,27 +37,23 @@ Whether you want to create Dhali assets or use Dhali assets, you must:
 1. **Have a digital wallet**: \
 Currently, we support [XRPL](https://xrpl.org/) wallets. Wallets can be created through our marketplace.
 2. **Open a payment channel to Dhali**: \
-A [payment channel](https://xrpl.org/payment-channels.html) is a type of blockchain technology that allows for secure, fast, and low-cost transactions without needing to commit all those transactions individually to the blockchain. \
-\
-A payment channel is like a locked box of money shared between two friends. Each time one friend wants to pay the other, instead of handing money directly, they exchange a key that permits a certain amount of money to be taken from the box in the future. The locked box only needs to be opened at the end when they're done transacting.
-3. **Create payment claims against the channel and send them to Dhali's API to fund your requests**: \
-A payment claim is a cryptographic key that is sent to Dhali's API. In the analogy above, it is a key to the box. It may represent fractions of a cent in value. Dhali checks the key's validity in real-time to ensure it can fund the latest request. Dhali uses the claim at a later date to take money from the payment channel. The amout of money that can be taken is determined by the payment claim creator.
-\
-\
+A [payment channel](https://xrpl.org/payment-channels.html) is a type of blockchain technology that allows for secure, fast, and low-cost transactions without needing to commit all those transactions individually to the blockchain.
+    > A payment channel is like a locked box of money shared between two friends. Each time one friend wants to pay the other, instead of handing money directly, they exchange a key that permits a certain amount of money to be taken from the box in the future. The locked box only needs to be opened at the end when they're done transacting.
+<p align="center" style="width:560px;"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/e2Iwsk37LMk?start=141" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+A payment claim is a cryptographic key that is sent to Dhali's API. In the payment channel analogy above, it is a key to the box. It may represent fractions of a cent in value. Dhali checks the key's validity in real-time to ensure it can fund the latest request. Dhali uses the claim at a later date to take money from the payment channel. The amout of money that can be taken is determined by the payment claim creator.
+<br><br>
 Payment claims are cummulative, meaning that if a user makes an API call costing X, followed by another API call costing Y, the first payment claim must have a value of at least X while the second payment claim must have a value of at least X+Y. Also, the second payment makes the first payment claim obsolete.
 Dhali exposes an API for using and producing Dhali assets.
 All API requests should include the payment-claim header:
-```bash
-Payment-Claim: $PAYMENT_CLAIM_JSON
-```
+
+    ```bash
+    Payment-Claim: $PAYMENT_CLAIM_JSON
+    ```
 To understand more about payment claims, see our section on creating them:
 <div class="button-container">
-<br>
     <a href="#/?id=preparing-payments">
         <button class="material-button" type="button">Create a payment claim</button>
     </a>
-<br>
-<br>
 </div>
 4. **Manage your Dhali balance**: \
 As you use Dhali's API, your usage costs are incremented. Your Dhali balance is the amount of money in the payment channel minus your current usage costs. If your Dhali balance reaches zero, you will need to add more money to your payment channel.
