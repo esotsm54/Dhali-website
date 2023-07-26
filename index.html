@@ -93,11 +93,20 @@
                     <h2>Monetise your code in minutes.</h2>
                     <p>Join our Web3.0 subscription-free API marketplace!</p>
                   </div>
-                  <div class="col-lg-12">
-                    <div class="border-first-button scroll-to-section">
-                      <a href="#contact">Get started</a>
+
+                  <div class="row">
+                    <div class="col-lg-6 negative-margin col-padding">
+                      <div class="border-first-button scroll-to-section">
+                        <a id="waitlist-button" href="#contact">Join the waitlist</a>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 negative-margin col-padding">
+                      <div class="border-first-button scroll-to-section">
+                        <a href="https://dhali-app.web.app">Try the marketplace</a>
+                      </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -115,6 +124,47 @@
   <footer>
   </footer>
 
+  <style>
+    .negative-margin {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    .border-first-button a {
+      white-space: nowrap;
+      /* prevent text from wrapping */
+    }
+
+    #waitlist-button:hover {
+      background-color: #2c37ff !important;
+    }
+
+    #waitlist-button:visited {
+      background-color: #2c37ff !important;
+    }
+
+    #waitlist-button:active {
+      background-color: #2c37ff !important;
+    }
+
+    #waitlist-button {
+      color: #FFFFFF !important;
+      background-color: #0000FF !important;
+      display: inline-block;
+      /* to keep it inline with text */
+      padding: 5px;
+      /* adjust padding as needed */
+    }
+
+    @media (max-width: 991.98px) {
+
+      /* Bootstrap's md breakpoint */
+      .col-padding {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  </style>
   <p style="page-break-after: always;">&nbsp;</p>
 
   <div id="free-quote" class="free-quote">
