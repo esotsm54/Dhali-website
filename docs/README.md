@@ -170,7 +170,14 @@ https://dhali-prod-run-dauenf0n.uc.gateway.dev/{uuid}/run
 
 **200**: OK
 
-Execution successful.
+The execution was successful. You will receive a response with the following headers:
+
+| Name          | Type      | Description           |
+|---------------|-----------|-----------------------|
+| dhali-latest-request-charge | String    | The cost of this request. |
+| dhali-total-requests-charge | String    | The cummulative cost of all request on this payment channel. |
+
+The body of the response will be:
 ```
 {
     <A json object, structured according to the asset creator>
