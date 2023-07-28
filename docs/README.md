@@ -204,10 +204,16 @@ Execution successful.
 ENDPOINT=https://<URL>/<ASSET_ID>/run
 ```
 * Prepare an input file using the asset's README description.
-* Then:
+* Then you can pass files to curl:
 ```bash
-curl -v -X PUT -H 'Payment-Claim: <insert_prepared_payment_claim>' -F 'input=@<path_to_input_file>' $ENDPOINT
+curl -v -X PUT -H "Payment-Claim: <insert_prepared_payment_claim>" -F "input=@<path_to_input_file>" $ENDPOINT
 ```
+or pass raw data (e.g., strings, jsons, etc)
+```bash
+curl -v -X PUT -H "Payment-Claim: <insert_prepared_payment_claim>" -F "input=<raw_data>" $ENDPOINT
+```
+> :warning: Note the use of "@" in the first `curl` request above. This ensures the content of the file is sent with the request, not the string corresponding to the file's name.
+
 
 <!-- tab:Python -->
 First:
