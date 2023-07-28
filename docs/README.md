@@ -58,6 +58,35 @@ To understand more about payment claims, see our section on creating them:
 4. **Manage your Dhali balance**: \
 As you use Dhali's API, your usage costs are incremented. Your Dhali balance is the amount of money in the payment channel minus your current usage costs. If your Dhali balance reaches zero, you will need to add more money to your payment channel.
 
+## Examples
+
+To use an asset from the marketplace, you just need a payment claim. Here's one you can use for free! In your terminal:
+```bash
+PAYMENT_CLAIM='{"account": "rBqZz7QjHLizCHGrfAAh5cZtvG7NS3DvBV", "destination_account": "rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk", "authorized_to_claim": "10000000", "signature": "47D6A8BFCB754BC859EF897F3DE0123F35B58F941E664B74E923766FE0E1AD2E3F655F1AB16954096442E74878EFF1C875D34EFB132D513D611F9615DDCBD70B", "channel_id": "742A4A95984FB1325FC882DFB88254102A333A6156FFFAB514174A5F8FB06B25"}'
+
+```
+* To access [speech-to-text](https://dhali-app.web.app/#/assets/d82952124-c156-4b16-963c-9bc8b2509b2c):
+```bash
+ENDPOINT='https://dhali-prod-run-dauenf0n.uc.gateway.dev/d82952124-c156-4b16-963c-9bc8b2509b2c/run'
+WAV_FILE='/tmp/tmp.wav'
+wget https://www.signalogic.com/melp/EngSamples/eng_m9.wav -O $WAV_FILE
+curl -X PUT \
+     -H "Payment-Claim: $PAYMENT_CLAIM" \
+     -F "input=@$WAV_FILE" \
+     $ENDPOINT
+```
+
+* To access [yolos-tiny](https://dhali-app.web.app/#/assets/de76539ac-40b3-406d-9fe6-0b7e70577a50):
+```bash
+ENDPOINT='https://dhali-prod-run-dauenf0n.uc.gateway.dev/de76539ac-40b3-406d-9fe6-0b7e70577a50/run'
+IMAGE_FILE='/tmp/tmp.wav'
+wget https://a-z-animals.com/media/2022/11/shutterstock_1557735749-1024x614.jpg -O $IMAGE_FILE
+curl -X PUT \
+     -H "Payment-Claim: $PAYMENT_CLAIM" \
+     -F "input=@$IMAGE_FILE" \
+     $ENDPOINT
+```
+
 ## Creating Dhali assets
 
 Creating a Dhali asset is simple. The [Dhali-examples](https://github.com/Dhali-org/Dhali-examples) repository provides a collection of functioning asset examples that can be used as a guide for asset creation.
