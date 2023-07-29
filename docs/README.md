@@ -2,38 +2,48 @@
 
 ## Introduction
 
-Dhali is a Web 3.0 open marketplace for API creators and users. With Dhali, you can stream blockchain-enabled micropayments for API services without needing any subscription. Dhali allows creators to upload their API, which then gets represented as an [NFT](https://xrpl.org/non-fungible-tokens.html) on the [XRPL](https://xrpl.org/). Whenever their API is used, micropayments are streamed to the NFT holder. The platform currently utilizes the XRP Ledger testnet for handling payments.
+Dhali is a Web3 marketplace for API creators and users. We sometimes call Dhali APIs "Assets". With Dhali, you can access enterprise-grade
+ APIs without any subscription. One command is all you need:
 
  <p align="center" style="width:560px;">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QaC_-lBG9hc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <img src="./images/curl.png" alt="curl_image" width="500">
 </p>
+
+Dhali also allows you to create new APIs, which get represented as [NFTs](https://xrpl.org/non-fungible-tokens.html) on the [XRPL](https://xrpl.org/). Whenever your API is used, micropayments are streamed to you - the NFT holder. The platform currently utilizes the XRP Ledger testnet for handling payments.
 
 ## Getting started
 
-* To explore currently available assets, check out the marketplace:
+* Check out our easy examples:
 <div class="button-container">
-    <a href="https://dhali-app.web.app/#/" target="_blank" rel="noopener noreferrer">
-        <button class="material-button" type="button">Marketplace</button>
+    <a href="#/?id=examples">
+        <button class="material-button" type="button">Examples</button>
+    </a>
+</div>
+
+* To access on-demand APIs, check out the tutorial:
+<div class="button-container">
+    <a href="#/?id=using-dhali-apis">
+        <button class="material-button" type="button">Using Dhali APIs</button>
     </a>
 </div>
 
 * To turn your software project into a revenue generating asset, check out the tutorial:
 <div class="button-container">
     <a href="#/?id=step-by-step-guide">
-        <button class="material-button" type="button">Creating Dhali Assets</button>
+        <button class="material-button" type="button">Creating Dhali APIs</button>
     </a>
 </div>
 
-* To access on-demand assets, check out the tutorial:
+* To explore currently available APIs, check out the marketplace:
 <div class="button-container">
-    <a href="#/?id=using-dhali-assets">
-        <button class="material-button" type="button">Using Dhali Assets</button>
+    <a href="https://dhali-app.web.app/#/" target="_blank" rel="noopener noreferrer">
+        <button class="material-button" type="button">Marketplace</button>
     </a>
 </div>
 
 ## How Dhali works
 
-Whether you want to create Dhali assets or use Dhali assets, you must:
+Whether you want to create Dhali APIs or use Dhali APIs, you must:
 1. **Have a digital wallet**: \
 Currently, we support [XRPL](https://xrpl.org/) wallets. Wallets can be created through our marketplace.
 2. **Open a payment channel to Dhali**: \
@@ -43,8 +53,7 @@ A [payment channel](https://xrpl.org/payment-channels.html) is a type of blockch
 A payment claim is a cryptographic key that is sent to Dhali's API. In the payment channel analogy above, it is a key to the box. It may represent fractions of a cent in value. Dhali checks the key's validity in real-time to ensure it can fund the latest request. Dhali uses the claim at a later date to take money from the payment channel. The amout of money that can be taken is determined by the payment claim creator.
 <br><br>
 Payment claims are cummulative, meaning that if a user makes an API call costing X, followed by another API call costing Y, the first payment claim must have a value of at least X while the second payment claim must have a value of at least X+Y. Also, the second payment makes the first payment claim obsolete.
-Dhali exposes an API for using and producing Dhali assets.
-All API requests should include the payment-claim header:
+All requests to Dhali should include the payment-claim header:
 
     ```bash
     Payment-Claim: $PAYMENT_CLAIM_JSON
@@ -88,7 +97,7 @@ curl -X PUT \
      $ENDPOINT
 ```
 
-## Creating Dhali assets
+## Creating Dhali APIs
 
 Creating a Dhali asset is simple. The [Dhali-examples](https://github.com/Dhali-org/Dhali-examples) repository provides a collection of functioning asset examples that can be used as a guide for asset creation.
 In what follows, we provide a step by step guide for how these were created.
@@ -127,7 +136,7 @@ docker save --output ./my_asset.tar my_api
 6. Once deployed, you will receive an NFT. View it by navigating to your wallet address [here](https://testnet.xrpl.org/).
 
 
-## Using Dhali assets
+## Using Dhali APIs
 
 Once you've selected an AI asset from the Dhali marketplace, you'll find an available endpoint and a description of the input structure required by the asset. Below, we show different ways to use the asset: 
 
