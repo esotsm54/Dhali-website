@@ -129,7 +129,7 @@ docker save --output ./my_asset.tar my_api
 ```
 5. To deploy your asset:
     * Enter the Dhali marketplace.
-    * Select "Add new asset" from the "My assets" page.
+    * Select "Monetise my asset" from the "My assets" page.
     * Follow the dialog to upload `./my_asset.tar` from 5. and your `README.md`.
     * Your api should now be visible in the marketplace.
 
