@@ -65,6 +65,7 @@ To use an asset from the marketplace, you just need a payment claim. Here's one 
 PAYMENT_CLAIM='{"account": "rBqZz7QjHLizCHGrfAAh5cZtvG7NS3DvBV", "destination_account": "rstbSTpPcyxMsiXwkBxS9tFTrg2JsDNxWk", "authorized_to_claim": "10000000", "signature": "47D6A8BFCB754BC859EF897F3DE0123F35B58F941E664B74E923766FE0E1AD2E3F655F1AB16954096442E74878EFF1C875D34EFB132D513D611F9615DDCBD70B", "channel_id": "742A4A95984FB1325FC882DFB88254102A333A6156FFFAB514174A5F8FB06B25"}'
 
 ```
+> :warning: The following examples may respond slowly the first time they are run.
 * To access [speech-to-text](https://dhali-app.web.app/#/assets/d82952124-c156-4b16-963c-9bc8b2509b2c):
 ```bash
 ENDPOINT='https://dhali-prod-run-dauenf0n.uc.gateway.dev/d82952124-c156-4b16-963c-9bc8b2509b2c/run'
