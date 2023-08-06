@@ -18,6 +18,16 @@ jobs:
           perl -i -pe "s#<!-- GTM_BODY -->#${GTM_PROD_BODY_SNIPPET}#gs" blog/index.html
           perl -i -pe "s#<!-- GTM_HEAD -->#${GTM_PROD_HEAD_SNIPPET}#gs" docs/index.html
           perl -i -pe "s#<!-- GTM_BODY -->#${GTM_PROD_BODY_SNIPPET}#gs" docs/index.html
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.110.0'
+          extended: true
+      - name: Build
+        working-directory: ./auth-by-pay
+        run: hugo --gc --minify --templateMetrics --templateMetricsHints --buildDrafts --buildExpired --buildFuture --forceSyncStatic --destination .
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
