@@ -1,0 +1,115 @@
+baseURL: /
+relativeURLs: true
+languageCode: en-us
+title: Dhali auth
+
+module:
+  # uncomment line below for local development of module
+  # workspace: hugo.work
+  imports:
+    path: hugo-fresh
+
+
+googleAnalytics: # Put in your tracking code without quotes like this: UA-XXX for universal tracking or G-XXX analytics v4 tracking
+# Disables warnings
+disableKinds:
+- taxonomy
+- taxonomyTerm
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Allows you to write raw html in your md files
+
+params:
+  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
+  openGraph: true
+  # Used as meta data; describe your site to make Google Bots happy
+  description:
+  # Preloader ensures images are loaded before displaying to the user. If you don't want it uncomment to set it to false
+  # preloader: false
+  # navbarlogo:
+  # # Logo (from static/images/logos/___)
+  #   image: illustrations/dhali-logo.png
+  #   link: /
+  #   # Default width/height. Uncomment if you need to change
+  #   width: 35
+  #   height: 20
+  font:
+    name: "Open Sans"
+    sizes: [400,600]
+  hero:
+    # Main hero title
+    title: Dhali
+    subtitle: Enable your APIs with Web3 Security and Crypto Payments
+    # Hero image (from static/images/___)
+    image: illustrations/dhali-logo.png
+    # Footer logos (from static/images/logos/clients/*.svg)
+    # urls are optional
+    valueProps:
+    - text: "Effortless integration:"
+      subText: In a few clicks, integrate your existing API infrastructure. <br>No migrations. Hassle-free and quick.
+    - text: "Accept BTC, ETH, and XRP:"
+      subText: Tap global markets, simplify payments, and embrace Web3. <br>Bring costs down by 70% with layer 2 transactions. Join a more inclusive API ecosystem.
+    - text: "Security and transparency:"
+      subText: Authenticate your users without OAUTH tokens. <br>Leverage auditable blockchain technology and cryptographic verification instead.
+  # Customizable navbar. For a dropdown, add a "sublinks" list.
+  navbar:
+  - title: Why Dhali?
+    url: "#section4"
+  - title: How it works
+    url: "#section3"
+  - title: Join waitlist
+    url: "#section5"
+    button: true
+  section4:
+    title: Why Dhali?
+    subtitle: Speed, cost, flexibility, transparency
+    clients:
+    - name: Traditional authentication
+      quote: 
+        - "1-3% transaction fees"
+        - "Slow transaction settlement"
+        - "Expensive auditing and accounting"
+        - "Manual API key management"
+        - "You are responsibility for securing payments and client information"
+        - "Delayed time-to-market"
+      job: Accountant
+      img: 1
+    - name: Dhali
+      quote: 
+        - "0.5% transaction fees"
+        - "Efficient, real-time payment streaming technology"
+        - "Transactions are audit-able on blockchain"
+        - "No API key management"
+        - "No client information to secure"
+        - "Monetise your APIs immediately"
+      job: Financial Analyst
+      img: 2
+  section3:
+    title: How does is work?
+    subtitle: "Efficient, layer-2 blockchain transactions"
+    image: illustrations/users.png
+    buttonText: Get started
+    buttonLink: "#section5"
+  section5:
+    title: Join our waitlist
+    buttonText: Submit
+    # action: https://formspree.io/f/<form_id>
+    # method: POST
+  footer:
+    # Logo (from /images/logos/___)
+    # Social Media Title
+    socialmediatitle: Follow Us
+    # Social media links (GitHub, Twitter, etc.). All are optional.
+    socialmedia:
+    - link: https://twitter.com/dhali_io
+      icon: twitter
+    - link: https://www.linkedin.com/company/98120426
+      icon: linkedin
+    bulmalogo: false
+    quicklinks:
+      column1:
+        title: "Blog"
+        links:
+        - text: Latest news
+          link: https://dhali.substack.com/
