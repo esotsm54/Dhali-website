@@ -71,7 +71,7 @@ params:
         - "Slow transaction settlement"
         - "Expensive auditing and accounting"
         - "Manual API key management"
-        - "You are responsibile for securing payments and client information"
+        - "You are responsible for securing payments and client information"
         - "Delayed time-to-market"
       job: Accountant
       img: 1
