@@ -58,8 +58,8 @@ params:
     url: "#section4"
   - title: How it works
     url: "#section3"
-  - title: Join waitlist
-    url: "#section5"
+  - title: Get started
+    url: "#section3"
     button: true
   section4:
     title: Why Dhali?
@@ -89,13 +89,8 @@ params:
     title: How does is work?
     subtitle: "Efficient, layer-2 blockchain transactions"
     image: illustrations/users.png
-    buttonText: Get started
+    buttonText: Monetise my API now
     buttonLink: "#section5"
-  section5:
-    title: Join our waitlist
-    buttonText: Submit
-    # action: https://formspree.io/f/<form_id>
-    # method: POST
   footer:
     # Logo (from /images/logos/___)
     # Social Media Title
