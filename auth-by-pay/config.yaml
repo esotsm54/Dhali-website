@@ -46,29 +46,29 @@ params:
     # Footer logos (from static/images/logos/clients/*.svg)
     # urls are optional
     valueProps:
-    - text: "Effortless integration:"
-      subText: In a few clicks, integrate your existing API infrastructure. <br>No migrations. Hassle-free and quick.
-    - text: "Accept BTC, ETH, and XRP:"
-      subText: Tap global markets, simplify payments, and embrace Web3. <br>Bring costs down by 70% with layer 2 transactions. Join a more inclusive API ecosystem.
-    - text: "Security and transparency:"
-      subText: Authenticate your users without OAUTH tokens. <br>Leverage auditable blockchain technology and cryptographic verification instead.
+    - text: "Access new customers:"
+      subText: Your APIs will be seemlessly accessible to global markets.
+    - text: "Reduce costs by 70%"
+      subText: Our blockchain technology lowers payment fees for all.
+    - text: "Improve time to market:"
+      subText: Our blockchain technology removes Web2.0 hurdles.
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbar:
   - title: Why Dhali?
     url: "#section4"
   - title: How it works
     url: "#section3"
-  - title: Get started
-    url: "#section3"
-    button: true
+  # - title: Get started
+  #   url: "#section3"
+  #   button: true
   section4:
     title: Why Dhali?
-    subtitle: Speed, cost, flexibility, transparency
+    subtitle: We are faster, cheaper, more flexibile, and transparent
     clients:
-    - name: Traditional authentication
+    - name: Other platforms
       quote: 
         - "1-3% transaction fees"
-        - "Slow transaction settlement"
+        - "Multi-day settlement"
         - "Expensive auditing and accounting"
         - "Manual API key management"
         - "You are responsible for securing payments and client information"
