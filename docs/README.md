@@ -5,8 +5,8 @@
 Dhali is a Web3 marketplace for API creators and users. We sometimes call Dhali APIs "Assets". With Dhali, you can access enterprise-grade
  APIs without any subscription. One command is all you need:
 
- <p align="center" style="width:560px;">
-    <img src="./images/curl.png" alt="curl_image" width="500">
+ <p align="center" style="max-width:560px;">
+    <img src="./images/curl.png" alt="curl_image" max-width="500">
 </p>
 
 Dhali also allows you to create new APIs, which get represented as [NFTs](https://xrpl.org/non-fungible-tokens.html) on the [XRPL](https://xrpl.org/). Whenever your API is used, micropayments are streamed to you - the NFT holder. The platform currently utilizes the XRP Ledger testnet for handling payments.
@@ -49,7 +49,7 @@ Currently, we support [XRPL](https://xrpl.org/) wallets. Wallets can be created 
 2. **Open a payment channel to Dhali**: \
 A [payment channel](https://xrpl.org/payment-channels.html) is a type of blockchain technology that allows for secure, fast, and low-cost transactions without needing to commit all those transactions individually to the blockchain.
     > A payment channel is like a locked box of money shared between two friends. Each time one friend wants to pay the other, instead of handing money directly, they exchange a key that permits a certain amount of money to be taken from the box in the future. The locked box only needs to be opened at the end when they're done transacting.
-<p align="center" style="width:560px;"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/e2Iwsk37LMk?start=141" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+<p align="center" style="max-width:560px;"><iframe max-width="560" height="315" src="https://www.youtube-nocookie.com/embed/e2Iwsk37LMk?start=141" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
 A payment claim is a cryptographic key that is sent to Dhali's API. In the payment channel analogy above, it is a key to the box. It may represent fractions of a cent in value. Dhali checks the key's validity in real-time to ensure it can fund the latest request. Dhali uses the claim at a later date to take money from the payment channel. The amout of money that can be taken is determined by the payment claim creator.
 <br><br>
 Payment claims are cummulative, meaning that if a user makes an API call costing X, followed by another API call costing Y, the first payment claim must have a value of at least X while the second payment claim must have a value of at least X+Y. Also, the second payment makes the first payment claim obsolete.
@@ -102,8 +102,8 @@ curl -X PUT \
 Creating a Dhali asset is simple. The [Dhali-examples](https://github.com/Dhali-org/Dhali-examples) repository provides a collection of functioning asset examples that can be used as a guide for asset creation.
 In what follows, we provide a step by step guide for how these were created.
 
- <p align="center" style="width:560px;">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Kckl5z14pm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <p align="center" style="max-width:560px;">
+          <iframe max-width="560" height="315" src="https://www.youtube-nocookie.com/embed/Kckl5z14pm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </p>
 
 #### Step by step guide
