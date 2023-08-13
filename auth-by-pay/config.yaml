@@ -39,19 +39,12 @@ params:
     sizes: [400,600]
   hero:
     # Main hero title
-    title: Dhali
-    subtitle: Enable your APIs with Web3 Security and Crypto Payments
+    title: Monetise in minutes
+    subtitle: Add Web3 monetisation to your APIs in minutes
     # Hero image (from static/images/___)
     image: illustrations/dhali-logo.png
     # Footer logos (from static/images/logos/clients/*.svg)
     # urls are optional
-    valueProps:
-    - text: "Access new customers:"
-      subText: Your APIs will be seemlessly accessible to global markets.
-    - text: "Reduce costs by 70%"
-      subText: Our blockchain technology lowers payment fees for all.
-    - text: "Improve time to market:"
-      subText: Our blockchain technology removes Web2.0 hurdles.
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbar:
   - title: Why Dhali?
@@ -85,6 +78,25 @@ params:
         - "Monetise your APIs immediately"
       job: Financial Analyst
       img: 2
+    valueProps:
+    - text: "Easy to use"
+      subText: Just link your wallet and API, that's it
+      icon: thumb_up
+    - text: "Reduce costs by 70%"
+      subText: Blockchain lowers fees for all
+      icon: monetization_on
+    - text: "Improve time to market"
+      subText: No more Web 2.0 hurdles or delays
+      icon: watch
+    - text: "Access new customers"
+      subText: Instantly achieve global reach
+      icon: public
+    - text: "Less burden"
+      subText: Managing customer data is a thing of the past
+      icon: check
+    - text: "Privacy and security"
+      subText: Blockchain security with off-ledger payments
+      icon: lock
   section3:
     title: How does is work?
     subtitle: "Efficient, layer-2 blockchain transactions"
