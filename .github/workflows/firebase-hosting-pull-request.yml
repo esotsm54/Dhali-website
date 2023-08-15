@@ -23,7 +23,9 @@ jobs:
         with:
           hugo-version: '0.110.0'
           extended: true
-      - name: Build
+      - name: Build landing page
+        run: hugo --gc --minify --templateMetrics --templateMetricsHints --buildDrafts --buildExpired --buildFuture --forceSyncStatic --destination .
+      - name: Build auth-by-pay
         working-directory: ./auth-by-pay
         run: hugo --gc --minify --templateMetrics --templateMetricsHints --buildDrafts --buildExpired --buildFuture --forceSyncStatic --destination .
       - uses: FirebaseExtended/action-hosting-deploy@v0
