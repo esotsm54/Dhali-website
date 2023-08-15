@@ -122,6 +122,8 @@ params:
       icon: linkedin
     - link: https://www.youtube.com/channel/UC8Mx_KbOQ4E7y50mSmlTx4w
       icon: youtube
+    - link: https://discord.gg/smBNMzPT
+      icon: discord
     bulmalogo: false
     quicklinks:
       column1:
