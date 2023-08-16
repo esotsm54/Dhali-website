@@ -40,6 +40,8 @@ params:
     name: "Open Sans"
     sizes: [400,600]
   hero:
+    buttonLink: https://dhali-app.web.app/
+    buttonText: Try it now
     # Main hero title
     title: Monetise in minutes
     subtitle: Add Web3 monetisation to your APIs in minutes
@@ -108,8 +110,8 @@ params:
     title: How does is work?
     subtitle: "Efficient, layer-2 blockchain transactions"
     image: illustrations/users.png
-    buttonText: Monetise my API now
-    buttonLink: "#section5"
+    buttonText: Try it now
+    buttonLink: "https://dhali-app.web.app"
   footer:
     # Logo (from /images/logos/___)
     # Social Media Title
