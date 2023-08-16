@@ -51,9 +51,6 @@ params:
     url: "#section4"
   - title: How it works
     url: "#section3"
-  # - title: Get started
-  #   url: "#section3"
-  #   button: true
   section4:
     title: Why Dhali?
     subtitle: We are faster, cheaper, more flexibile, and transparent
@@ -101,8 +98,6 @@ params:
     title: How does is work?
     subtitle: "Efficient, layer-2 blockchain transactions"
     image: illustrations/users.png
-    buttonText: Monetise my API now
-    buttonLink: "#section5"
   footer:
     # Logo (from /images/logos/___)
     # Social Media Title
